@@ -1,0 +1,9 @@
+{
+  "__Author__": "PCL-ME",
+  "Title": "Mineplugin Wiki",
+  "Description": "Reference material for server-side plugin ecosystems",
+  "Types": ["Reference"],
+  "IsEvent": true,
+  "EventType": "open_web",
+  "EventData": "https://mineplugin.org/"
+}

@@ -1,0 +1,10 @@
+{
+  "__Author__": "PCL-ME",
+  "Title": "MCMod Encyclopedia",
+  "Description": "A large Chinese encyclopedia focused on Minecraft mods",
+  "Keywords": "minecraft mods encyclopedia chinese",
+  "Types": ["Reference"],
+  "IsEvent": true,
+  "EventType": "open_web",
+  "EventData": "https://www.mcmod.cn/"
+}

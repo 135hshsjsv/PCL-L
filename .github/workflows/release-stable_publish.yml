@@ -1,0 +1,111 @@
+name: Publish (Release)
+
+permissions:
+  contents: read
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Release tag to publish assets to
+        required: true
+        type: string
+      source_ref:
+        description: Git ref to build from. Defaults to release_tag.
+        required: false
+        type: string
+
+jobs:
+  build:
+    if: ${{ github.event_name == 'workflow_dispatch' || !github.event.release.prerelease }}
+    strategy:
+      matrix:
+        include:
+          - configuration: Release
+            runner: ubuntu-latest
+            rid: linux-x64
+            artifact_name: PCL-ME_Release_linux-x64
+          - configuration: Release
+            runner: ubuntu-24.04-arm
+            rid: linux-arm64
+            artifact_name: PCL-ME_Release_linux-arm64
+          - configuration: Release
+            runner: ubuntu-latest
+            rid: win-x64
+            artifact_name: PCL-ME_Release_win-x64
+          - configuration: Release
+            runner: ubuntu-latest
+            rid: win-arm64
+            artifact_name: PCL-ME_Release_win-arm64
+          - configuration: Release
+            runner: macos-latest
+            rid: osx-arm64
+            artifact_name: PCL-ME_Release_osx-arm64
+      fail-fast: false
+
+    uses: ./.github/workflows/reusable-build.yml
+    with:
+      configuration: ${{ matrix.configuration }}
+      source_ref: ${{ inputs.source_ref || inputs.release_tag || github.event.release.tag_name }}
+      runner: ${{ matrix.runner }}
+      rid: ${{ matrix.rid }}
+      artifact_name: ${{ matrix.artifact_name }}
+    secrets: inherit
+
+  changelog:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    if: ${{ github.event_name == 'workflow_dispatch' || !github.event.release.prerelease }}
+    steps:
+      - name: Checkout all
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.source_ref || inputs.release_tag || github.event.release.tag_name }}
+
+      - name: Install git-cliff
+        uses: taiki-e/install-action@git-cliff
+
+      - name: Generate changelog
+        run: git-cliff --latest -o CHANGELOG.md
+
+      - name: Add changelog to release
+        uses: softprops/action-gh-release@v2.5.0
+        with:
+          tag_name: ${{ inputs.release_tag || github.event.release.tag_name }}
+          body_path: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  upload_release_assets:
+    permissions:
+      contents: write
+    needs: [build, changelog]
+    if: ${{ github.event_name == 'workflow_dispatch' || !github.event.release.prerelease }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download packaged artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: PCL-ME_Release_*
+          path: ./artifact
+          merge-multiple: true
+
+      - name: Upload packaged artifacts to release
+        uses: softprops/action-gh-release@v2.5.0
+        with:
+          tag_name: ${{ inputs.release_tag || github.event.release.tag_name }}
+          files: |
+            artifact/**/PCL-ME-*.zip
+            artifact/**/PCL-ME-*.tar.gz
+            artifact/**/PCL-ME-*.exe
+            artifact/**/PCL-ME-*.zip.asc
+            artifact/**/PCL-ME-*.tar.gz.asc
+            artifact/**/PCL-ME-*.exe.asc
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

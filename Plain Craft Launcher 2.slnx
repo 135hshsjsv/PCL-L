@@ -1,0 +1,23 @@
+﻿<Solution>
+  <Configurations>
+    <BuildType Name="CI" />
+    <BuildType Name="Beta" />
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <Platform Name="AnyCPU" />
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="PCL.Core.Backend\PCL.Core.Backend.csproj" Type="C#" />
+  <Project Path="PCL.Core.Backend.Test\PCL.Core.Backend.Test.csproj" Type="C#">
+    <Build Solution="*|*" Project="false" />
+  </Project>
+  <Project Path="PCL.Core.Backend.Foundation.Test\PCL.Core.Backend.Foundation.Test.csproj" Type="C#">
+    <Build Solution="*|*" Project="false" />
+  </Project>
+  <Project Path="PCL.Frontend.Avalonia\PCL.Frontend.Avalonia.csproj" Type="C#" />
+  <Project Path="PCL.Frontend.Avalonia.Test\PCL.Frontend.Avalonia.Test.csproj" Type="C#">
+    <Build Solution="*|*" Project="false" />
+  </Project>
+  <Project Path="PCL.Tools.I18n\PCL.Tools.I18n.csproj" Type="C#" />
+</Solution>

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=PlainCraftLauncher - Linux
+GenericName=Minecraft Launcher
+Comment=Plain Craft Launcher for Linux
+Exec=/opt/plaincraftlauncher/PCL.Frontend.Avalonia
+Icon=plaincraftlauncher
+Terminal=false
+Categories=Game;
+Keywords=minecraft;launcher;pcl;
+StartupWMClass=PCL.Frontend.Avalonia

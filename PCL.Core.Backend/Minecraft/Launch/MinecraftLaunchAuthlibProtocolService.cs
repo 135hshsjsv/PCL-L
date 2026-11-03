@@ -1,0 +1,153 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+
+namespace PCL.Core.Minecraft.Launch;
+
+public static class MinecraftLaunchAuthlibProtocolService
+{
+    public static string BuildValidateRequestJson(string accessToken, string clientToken)
+    {
+        var payload = new JsonObject
+        {
+            ["accessToken"] = accessToken,
+            ["clientToken"] = clientToken
+        };
+        return payload.ToJsonString();
+    }
+
+    public static string BuildRefreshRequestJson(
+        string accessToken,
+        string clientToken,
+        string? selectedProfileName = null,
+        string? selectedProfileId = null)
+    {
+        var payload = new JsonObject
+        {
+            ["accessToken"] = accessToken,
+            ["clientToken"] = clientToken,
+            ["requestUser"] = true
+        };
+
+        if (!string.IsNullOrWhiteSpace(selectedProfileName) &&
+            !string.IsNullOrWhiteSpace(selectedProfileId))
+        {
+            payload["selectedProfile"] = new JsonObject
+            {
+                ["name"] = selectedProfileName,
+                ["id"] = selectedProfileId
+            };
+        }
+
+        return payload.ToJsonString();
+    }
+
+    public static string BuildAuthenticateRequestJson(string userName, string password, string clientToken)
+    {
+        var payload = new JsonObject
+        {
+            ["agent"] = new JsonObject
+            {
+                ["name"] = "Minecraft",
+                ["version"] = 1
+            },
+            ["username"] = userName,
+            ["password"] = password,
+            ["clientToken"] = clientToken,
+            ["requestUser"] = true
+        };
+        return payload.ToJsonString();
+    }
+
+    public static MinecraftLaunchAuthlibRefreshResponse ParseRefreshResponseJson(string json)
+    {
+        var root = ParseObject(json);
+        var selectedProfile = root["selectedProfile"]?.AsObject()
+                              ?? throw new InvalidOperationException("The selected profile is invalid.");
+
+        return new MinecraftLaunchAuthlibRefreshResponse(
+            GetRequiredString(root, "accessToken"),
+            GetRequiredString(root, "clientToken"),
+            GetRequiredString(selectedProfile, "id"),
+            GetRequiredString(selectedProfile, "name"));
+    }
+
+    public static MinecraftLaunchAuthlibAuthenticateResponse ParseAuthenticateResponseJson(string json, string? fallbackClientToken = null)
+    {
+        var root = ParseObject(json);
+        var availableProfilesNode = root["availableProfiles"] as JsonArray ?? [];
+        var availableProfiles = availableProfilesNode
+            .Select(profile => profile as JsonObject)
+            .Where(profile => profile is not null)
+            .Select(profile => new MinecraftLaunchAuthProfileOption(
+                GetRequiredString(profile!, "id"),
+                GetRequiredString(profile!, "name")))
+            .ToList();
+
+        string? selectedProfileId = null;
+        if (root["selectedProfile"] is JsonObject selectedProfile)
+        {
+            selectedProfileId = GetRequiredString(selectedProfile, "id");
+        }
+
+        var resolvedClientToken = GetOptionalString(root, "clientToken")
+                                  ?? fallbackClientToken
+                                  ?? throw new InvalidOperationException("JSON 内容缺少 clientToken 字段。");
+
+        return new MinecraftLaunchAuthlibAuthenticateResponse(
+            GetRequiredString(root, "accessToken"),
+            resolvedClientToken,
+            availableProfiles,
+            selectedProfileId);
+    }
+
+    public static string ParseServerNameFromMetadataJson(string json)
+    {
+        var root = ParseObject(json);
+        var meta = root["meta"]?.AsObject()
+                   ?? throw new InvalidOperationException("The server metadata is missing the meta field.");
+        return GetRequiredString(meta, "serverName");
+    }
+
+    private static JsonObject ParseObject(string json)
+    {
+        if (string.IsNullOrWhiteSpace(json))
+        {
+            throw new ArgumentException("JSON content cannot be empty.", nameof(json));
+        }
+
+        return JsonNode.Parse(json) as JsonObject
+               ?? throw new InvalidOperationException("The JSON content is not an object.");
+    }
+
+    private static string GetRequiredString(JsonObject obj, string propertyName)
+    {
+        var value = obj[propertyName]?.ToString();
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            throw new InvalidOperationException($"The JSON content is missing the {propertyName} field.");
+        }
+
+        return value;
+    }
+
+    private static string? GetOptionalString(JsonObject obj, string propertyName)
+    {
+        var value = obj[propertyName]?.ToString();
+        return string.IsNullOrWhiteSpace(value) ? null : value;
+    }
+}
+
+public sealed record MinecraftLaunchAuthlibRefreshResponse(
+    string AccessToken,
+    string ClientToken,
+    string SelectedProfileId,
+    string SelectedProfileName);
+
+public sealed record MinecraftLaunchAuthlibAuthenticateResponse(
+    string AccessToken,
+    string ClientToken,
+    IReadOnlyList<MinecraftLaunchAuthProfileOption> AvailableProfiles,
+    string? SelectedProfileId);

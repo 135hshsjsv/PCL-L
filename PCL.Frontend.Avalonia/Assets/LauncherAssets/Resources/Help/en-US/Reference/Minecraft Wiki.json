@@ -1,0 +1,10 @@
+{
+  "__Author__": "PCL-ME",
+  "Title": "Minecraft Wiki",
+  "Description": "The official community-maintained Minecraft reference wiki",
+  "Keywords": "minecraft wiki reference",
+  "Types": ["Reference"],
+  "IsEvent": true,
+  "EventType": "open_web",
+  "EventData": "https://minecraft.wiki/w/Minecraft_Wiki"
+}

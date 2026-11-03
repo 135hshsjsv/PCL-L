@@ -1,0 +1,61 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PCL.Core.Minecraft.Launch;
+using System.IO;
+using System.Collections.Generic;
+
+namespace PCL.Core.Test.Minecraft;
+
+[TestClass]
+public sealed class MinecraftLaunchExecutionWorkflowServiceTest
+{
+    [TestMethod]
+    public void BuildCustomCommandShellPlanBuildsCmdInvocation()
+    {
+        var result = MinecraftLaunchExecutionWorkflowService.BuildCustomCommandShellPlan(
+            new MinecraftLaunchCustomCommandShellRequest(
+                Command: "echo hello",
+                WaitForExit: true,
+                WorkingDirectory: @"C:\Minecraft",
+                StartLogMessage: "start",
+                FailureLogMessage: "fail"));
+
+        Assert.AreEqual(OperatingSystem.IsWindows() ? "cmd.exe" : "/bin/sh", result.FileName);
+        Assert.AreEqual(
+            OperatingSystem.IsWindows() ? "/c \"echo hello\"" : "-lc \"echo hello\"",
+            result.Arguments);
+        Assert.AreEqual(@"C:\Minecraft", result.WorkingDirectory);
+        Assert.IsFalse(result.UseShellExecute);
+        Assert.IsTrue(result.CreateNoWindow);
+        Assert.IsTrue(result.WaitForExit);
+        Assert.AreEqual("Launch was canceled, so the custom command CMD process was forcefully terminated", result.AbortKillLogMessage);
+    }
+
+    [TestMethod]
+    public void BuildProcessShellPlanWrapsRuntimePlanAndAddsLaunchLogs()
+    {
+        var result = MinecraftLaunchExecutionWorkflowService.BuildProcessShellPlan(
+            new MinecraftLaunchProcessRequest(
+                PreferConsoleJava: false,
+                JavaExecutablePath: @"C:\Java\bin\java.exe",
+                JavawExecutablePath: @"C:\Java\bin\javaw.exe",
+                JavaFolder: @"C:\Java\bin",
+                CurrentPathEnvironmentValue: string.Join(Path.PathSeparator, [@"C:\Windows", @"C:\Tools"]),
+                AppDataPath: @"D:\.minecraft",
+                WorkingDirectory: @"D:\Instances\Fabric",
+                LaunchArguments: "--demo",
+                WrapperCommand: null,
+                EnvironmentVariables: new Dictionary<string, string>(),
+                PrioritySetting: 0));
+
+        Assert.AreEqual(@"C:\Java\bin\javaw.exe", result.FileName);
+        Assert.AreEqual("--demo", result.Arguments);
+        Assert.AreEqual(@"D:\Instances\Fabric", result.WorkingDirectory);
+        Assert.IsFalse(result.UseShellExecute);
+        Assert.IsTrue(result.RedirectStandardOutput);
+        Assert.IsTrue(result.RedirectStandardError);
+        Assert.AreEqual(@"D:\.minecraft", result.AppDataEnvironmentValue);
+        Assert.AreEqual(MinecraftLaunchProcessPriorityKind.AboveNormal, result.PriorityKind);
+        Assert.AreEqual(@"Started game process: C:\Java\bin\javaw.exe", result.StartedLogMessage);
+        Assert.AreEqual("Launch was canceled, so the game process was forcefully terminated", result.AbortKillLogMessage);
+    }
+}
