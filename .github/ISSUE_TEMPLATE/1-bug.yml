@@ -7,11 +7,11 @@ body:
     label: "检查项"
     description: "请逐个检查下列项目，并勾选确认。"
     options:
-    - label: "我已在 [Issues 页面](https://github.com/TheUnknownThing/PCL-ME/issues?q=is%3Aissue+) 中搜索，确认了这一 Bug 未被提交过"
+    - label: "我已在 [Issues 页面](https://github.com/135hshsjsv/PCL-L/issues?q=is%3Aissue+) 中搜索，确认了这一 Bug 未被提交过"
       required: true
-    - label: "我确认只是全部选中而没有[仔细确认](https://github.com/TheUnknownThing/PCL-ME/issues?q=is%3Aissue+)就直接提交了这个 Issue，并且同意这个 Issue 可以直接被关闭"
+    - label: "我确认只是全部选中而没有[仔细确认](https://github.com/135hshsjsv/PCL-L/issues?q=is%3Aissue+)就直接提交了这个 Issue，并且同意这个 Issue 可以直接被关闭"
       required: false
-    - label: "我确认正在使用当前更新分支的最新版 PCL-ME，若不是，此 Issue 可能会被直接关闭（更新方式：启动器 `设置-关于-软件更新` 检查更新，或在 [Releases](https://github.com/TheUnknownThing/PCL-ME/releases) 页面下载）"
+    - label: "我确认正在使用当前更新分支的最新版 PCL-L，若不是，此 Issue 可能会被直接关闭（更新方式：启动器 `设置-关于-软件更新` 检查更新，或在 [Releases](https://github.com/135hshsjsv/PCL-L/releases) 页面下载）"
       required: true
     - label: "我确认会提供可复现的错误环境信息与运行日志；如果缺少这些信息，此 Issue 可能会被直接关闭"
       required: true
@@ -33,7 +33,7 @@ body:
       例如：
       - 操作系统与版本：
       - CPU 架构：
-      - PCL-ME 版本：
+      - PCL-L 版本：
       - .NET 版本：
       - 游戏版本 / 模组加载器 / 相关组件版本：
       - 其他会影响复现的设置：

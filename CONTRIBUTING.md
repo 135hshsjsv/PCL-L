@@ -1,6 +1,6 @@
-# 如何为 PCL-ME 做贡献
+# 如何为 PCL-L 做贡献
 
-感谢你愿意参与 PCL-ME。
+感谢你愿意参与 PCL-L。
 
 ## 关于 AI 生成代码
 
@@ -16,7 +16,7 @@
 ## 开始之前
 
 - 先阅读 [README](README.md) 与 [PCL.Frontend.Avalonia/README.md](PCL.Frontend.Avalonia/README.md)。
-- 查看当前 [Issues](https://github.com/TheUnknownThing/PCL-ME/issues)，确认问题或提案是否已经存在。
+- 查看当前 [Issues](https://github.com/135hshsjsv/PCL-L/issues)，确认问题或提案是否已经存在。
 - 如果你准备为新功能提交 PR，请先创建对应的 Feature Issue，并等待 maintainer 在 Issue 中确认方向。
 - 涉及界面改动时，请优先修改 `PCL.Frontend.Avalonia/`，不要把新功能继续加回旧的 WPF 路线。
 

@@ -1,6 +1,6 @@
 # PCL.Core.Backend
 
-`PCL.Core.Backend` 是 PCL-ME 当前使用的共享后端程序集，由 Avalonia 前端与后端测试项目共同使用。
+`PCL.Core.Backend` 是 PCL-L 当前使用的共享后端程序集，由 Avalonia 前端与后端测试项目共同使用。
 
 ## 目录结构
 
