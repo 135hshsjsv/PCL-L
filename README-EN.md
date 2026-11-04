@@ -1,7 +1,7 @@
 # PCL-L
 
 <p align="center">
-  <img src="PCL.Frontend.Avalonia/Assets/icon.png" alt="PCL-L" width="112" height="112">
+  <img src="docs/logo.png?v=2" alt="PCL-L" width="112" height="112">
 </p>
 
 <p align="center">
