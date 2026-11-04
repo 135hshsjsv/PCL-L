@@ -112,7 +112,7 @@ internal static class FrontendLinuxDesktopEntryService
         builder.AppendLine("[Desktop Entry]");
         builder.AppendLine("Type=Application");
         builder.AppendLine($"Name={EscapeDesktopValue(displayName)}");
-        builder.AppendLine("Comment=PCL2 Multiplatform Edition");
+        builder.AppendLine("Comment=Plain Craft Launcher for Linux");
         builder.AppendLine($"Exec={string.Join(" ", execArguments.Select(EscapeExecArgument))}");
 
         if (!string.IsNullOrWhiteSpace(workingDirectory))
