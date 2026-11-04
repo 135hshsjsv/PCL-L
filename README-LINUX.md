@@ -11,7 +11,8 @@
 | Debian / Ubuntu / Mint / Pop!_OS / Deepin | `PCL-L-1.0.0-amd64.deb` |
 | Fedora / RHEL / Rocky / AlmaLinux / openSUSE | `PCL-L-1.0.0-1.x86_64.rpm` |
 | Arch / Manjaro / EndeavourOS | `PCL-L-1.0.0-1-x86_64.pkg.tar.zst` |
-| 任意发行版（免安装） | `PCL-L-1.0.0-linux-x64-portable.tar.gz` |
+| 任意发行版（单文件） | `PCL-L-1.0.0-x86_64.AppImage` |
+| 任意发行版（解压即用） | `PCL-L-1.0.0-linux-x64-portable.tar.gz` |
 
 以上文件在 [Releases](https://github.com/135hshsjsv/PCL-L/releases) 与本地 `安装包/` 目录中提供，校验用 `sha256sum -c SHA256SUMS`。
 
@@ -29,6 +30,10 @@ sudo zypper install ./PCL-L-1.0.0-1.x86_64.rpm
 
 # Arch 系
 sudo pacman -U PCL-L-1.0.0-1-x86_64.pkg.tar.zst
+
+# AppImage（需要 FUSE2；无 FUSE 时加 --appimage-extract-and-run）
+chmod +x PCL-L-1.0.0-x86_64.AppImage
+./PCL-L-1.0.0-x86_64.AppImage
 
 # 免安装
 tar -xzf PCL-L-1.0.0-linux-x64-portable.tar.gz -C ~/PCL-L
@@ -85,7 +90,7 @@ cd packaging/arch && PCL_PAYLOAD=$PWD/../../out makepkg -f --nodeps
 
 ## 已知限制
 
-- AppImage 暂未提供（构建时需要从 GitHub 拉取 AppImage runtime，当前网络环境不稳定）
+- AppImage 依赖 FUSE2；Ubuntu 24.04 等只带 FUSE3 的发行版需要 `libfuse2t64`，或直接用 `--appimage-extract-and-run`
 - 托盘图标在部分桌面环境（GNOME 未装 AppIndicator 扩展时）不显示，属桌面环境限制
 
 ## 许可证与致谢

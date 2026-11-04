@@ -28,8 +28,9 @@ public static class LauncherStartupEnvironmentWarningService
         {
             warnings.Add("- PCL is currently running from a macOS translocation path. Move it to Applications or another normal directory before opening it to avoid path detection issues.");
         }
-        else if (executableDirectory.Contains(Path.GetTempPath(), StringComparison.OrdinalIgnoreCase) ||
-                 executableDirectory.Contains(@"AppData\Local\Temp\", StringComparison.OrdinalIgnoreCase))
+        else if (!IsRunningFromAppImage() &&
+                 (executableDirectory.Contains(Path.GetTempPath(), StringComparison.OrdinalIgnoreCase) ||
+                  executableDirectory.Contains(@"AppData\Local\Temp\", StringComparison.OrdinalIgnoreCase)))
         {
             warnings.Add("- PCL is running from a temporary directory. Extract it from the archive before using it, or game saves and settings may be lost.");
         }
@@ -42,6 +43,12 @@ public static class LauncherStartupEnvironmentWarningService
         }
 
         return warnings;
+    }
+
+    private static bool IsRunningFromAppImage()
+    {
+        return !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("APPIMAGE")) ||
+               !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("APPDIR"));
     }
 
     private static bool IsLikelyMacAppTranslocationPath(string executableDirectory)
