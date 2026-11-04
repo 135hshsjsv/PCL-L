@@ -860,7 +860,7 @@ shell:
         unsupported: 이 도구 상자 작업은 아직 Avalonia 프런트엔드에서 지원되지 않습니다.
   multiplayer:
     title: P2P 멀티플레이
-    copyright: 멀티플레이는 Terracotta(AGPL-3.0)로 제공됩니다. 방은 HMCL, PCL2, ZL2, FCL, PCL-ME와 호환됩니다.
+    copyright: 멀티플레이는 Terracotta(AGPL-3.0)로 제공됩니다. 방은 HMCL, PCL2, ZL2, FCL, PCL-L와 호환됩니다.
     status:
       ready: 방을 만들거나 참가할 수 있습니다.
       installing: 멀티플레이 구성 요소를 내려받는 중…
@@ -952,7 +952,7 @@ startup:
       actions:
         acknowledge: 이해합니다
     update_log:
-      title: PCL-ME가 {version_branch} {version_base}로 업데이트되었습니다
+      title: PCL-L가 {version_branch} {version_base}로 업데이트되었습니다
       actions:
         confirm: 확인
         full_changelog: 전체 변경 기록
@@ -1034,7 +1034,7 @@ launch:
           cancel: 취소
     support:
       title: 실행 마일스톤 {launch_count}
-      message: 게임을 {launch_count}회 시작했습니다. PCL-ME가 유용했다면 프로젝트 후원을 고려해 보세요.
+      message: 게임을 {launch_count}회 시작했습니다. PCL-L가 유용했다면 프로젝트 후원을 고려해 보세요.
       actions:
         sponsor: 스폰서
         continue: 계속하다
@@ -1556,15 +1556,15 @@ setup:
         action: 커뮤니티 페이지 열기
         command: 커뮤니티 저장소 열기
       maintainer:
-        summary: PCL-ME 유지 관리자.
+        summary: PCL-L 유지 관리자.
         action: 프로필 열기
         command: GitHub 프로필 열기
       contributor:
-        summary: PCL-ME 기여자.
+        summary: PCL-L 기여자.
         action: 프로필 열기
         command: GitHub 프로필 열기
       repo:
-        title: PCL-ME
+        title: PCL-L
         action: 저장소 열기
         command: 프로젝트 저장소 열기
     acknowledgements:
@@ -3082,7 +3082,7 @@ instance:
       delete: 인스턴스 삭제
       patch_core: 패치 코어
     artifacts:
-      direct_launch_entry_name: PCL-ME {instance_name}
+      direct_launch_entry_name: PCL-L {instance_name}
       launch_script_name: '{instance_name} 실행'
     messages:
       select_to_view_details: 세부정보를 보려면 인스턴스를 선택하세요.
@@ -3668,16 +3668,16 @@ save_detail:
     export_missing: 내보낸 파일이 존재하지 않습니다.
 welcome:
   step_0:
-    title: PCL-ME에 오신 것을 환영합니다
+    title: PCL-L에 오신 것을 환영합니다
     description: 언어와 테마를 선택하세요. 두 설정 모두 기본값은 시스템 따름이며, 언어 변경은 현재 화면에 즉시 반영됩니다.
     language_hint: 지금 바로 런처 언어를 바꿀 수 있으며, 이 안내 화면의 텍스트도 즉시 갱신됩니다.
-    theme_hint: PCL-ME를 처음 열 때 사용할 표시 모드를 선택하세요.
+    theme_hint: PCL-L를 처음 열 때 사용할 표시 모드를 선택하세요.
   step_1:
     title: 이용 약관
-    description: 현재 PCL-ME를 사용하고 있습니다. 이는 PCL을 기반으로 한 커뮤니티 제작 멀티플랫폼 에디션이며, 소스 코드는 GitHub에 완전히 공개되어 있습니다. 이 소프트웨어를 사용할 때에는 거주 국가 또는 지역의 법률과 규정을 준수하고, PCL 원저자의 이용 약관 및 면책 고지를 존중해 주세요. PCL-ME를 기반으로 한 소프트웨어를 개발하거나 배포하려면 먼저 README의 라이선스 설명을 읽어 주세요.
-    community_notice: '현재 PCL-ME를 사용하고 있습니다. 이는 PCL을 기반으로 한 커뮤니티 제작 멀티플랫폼 에디션이며, 소스 코드는 GitHub에 완전히 공개되어 있습니다. 이 소프트웨어를 사용할 때에는 거주 국가 또는 지역의 법률과 규정을 준수하고, PCL 원저자의 '
+    description: 현재 PCL-L를 사용하고 있습니다. 이는 PCL을 기반으로 한 커뮤니티 제작 멀티플랫폼 에디션이며, 소스 코드는 GitHub에 완전히 공개되어 있습니다. 이 소프트웨어를 사용할 때에는 거주 국가 또는 지역의 법률과 규정을 준수하고, PCL 원저자의 이용 약관 및 면책 고지를 존중해 주세요. PCL-L를 기반으로 한 소프트웨어를 개발하거나 배포하려면 먼저 README의 라이선스 설명을 읽어 주세요.
+    community_notice: '현재 PCL-L를 사용하고 있습니다. 이는 PCL을 기반으로 한 커뮤니티 제작 멀티플랫폼 에디션이며, 소스 코드는 GitHub에 완전히 공개되어 있습니다. 이 소프트웨어를 사용할 때에는 거주 국가 또는 지역의 법률과 규정을 준수하고, PCL 원저자의 '
     community_ack_label: 이것이 커뮤니티에서 제작한 PCL의 멀티플랫폼 에디션임을 이해했습니다.
-    eula_summary: '을 존중해 주세요. PCL-ME를 기반으로 한 소프트웨어를 개발하거나 배포하려면 먼저 '
+    eula_summary: '을 존중해 주세요. PCL-L를 기반으로 한 소프트웨어를 개발하거나 배포하려면 먼저 '
     open_eula: 이용 약관 및 면책 고지
     open_readme: README
     readme_summary: 의 라이선스 설명을 읽어 주세요.
@@ -3686,7 +3686,7 @@ welcome:
     decline: 거부 및 종료
   step_2:
     title: 준비 완료
-    description: PCL-ME를 사용할 준비가 되었습니다. 시작용 튜토리얼을 열거나 아래 링크로 프로젝트와 피드백 채널을 확인하세요.
+    description: PCL-L를 사용할 준비가 되었습니다. 시작용 튜토리얼을 열거나 아래 링크로 프로젝트와 피드백 채널을 확인하세요.
     tutorial: 튜토리얼 열기
     feedback: 피드백 제출
     github: GitHub
@@ -3698,7 +3698,7 @@ desktop:
     hide_pet: 데스크톱 펫 숨기기
     quit: 종료
   pet:
-    title: PCL-ME 데스크톱 펫
+    title: PCL-L 데스크톱 펫
     hint: 클릭 및 더블 클릭 동작은 설정에서 변경할 수 있습니다. 드래그하여 이동하세요. 게임 실행 및 다른 작업은 마우스 오른쪽 버튼 메뉴에서 선택하세요.
   settings:
     header: 트레이 및 데스크톱 펫

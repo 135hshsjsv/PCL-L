@@ -860,7 +860,7 @@ shell:
         unsupported: 此百寶箱操作於 Avalonia 前端暫未支。
   multiplayer:
     title: P2P 聯機
-    copyright: 聯機之能，出於 Terracotta（AGPL-3.0）。室可與 HMCL、PCL2、ZL2、FCL 及 PCL-ME 相通。
+    copyright: 聯機之能，出於 Terracotta（AGPL-3.0）。室可與 HMCL、PCL2、ZL2、FCL 及 PCL-L 相通。
     status:
       ready: 可開室，亦可入室。
       installing: 正在下載聯機之具…
@@ -952,7 +952,7 @@ startup:
       actions:
         acknowledge: 知悉
     update_log:
-      title: PCL-ME 已更新至 {version_branch} {version_base}
+      title: PCL-L 已更新至 {version_branch} {version_base}
       actions:
         confirm: 可
         full_changelog: 完整更錄
@@ -1034,7 +1034,7 @@ launch:
           cancel: 止
     support:
       title: 第 {launch_count} 次啟動
-      message: 子累計啟遊戲 {launch_count} 次矣。若 PCL-ME 於子有益，可思資助此項目。
+      message: 子累計啟遊戲 {launch_count} 次矣。若 PCL-L 於子有益，可思資助此項目。
       actions:
         sponsor: 贊助
         continue: 續
@@ -1556,15 +1556,15 @@ setup:
         action: 啟社羣頁
         command: 啟社羣倉庫
       maintainer:
-        summary: PCL-ME 維護者。
+        summary: PCL-L 維護者。
         action: 開主頁
         command: 開 GitHub 個人主頁
       contributor:
-        summary: PCL-ME 貢獻者。
+        summary: PCL-L 貢獻者。
         action: 開主頁
         command: 開 GitHub 個人主頁
       repo:
-        title: PCL-ME
+        title: PCL-L
         action: 啟倉庫
         command: 啟項目倉庫
     acknowledgements:
@@ -3082,7 +3082,7 @@ instance:
       delete: 刪實例
       patch_core: 修補核心
     artifacts:
-      direct_launch_entry_name: PCL-ME {instance_name}
+      direct_launch_entry_name: PCL-L {instance_name}
       launch_script_name: 啟動 {instance_name}
     messages:
       select_to_view_details: 先擇一實例，而後覽詳。
@@ -3668,16 +3668,16 @@ save_detail:
     export_missing: 匯出的檔不存在
 welcome:
   step_0:
-    title: 歡迎使用 PCL-ME
+    title: 歡迎使用 PCL-L
     description: 請擇語言與明暗主題。二者預設皆從系統，易語即時更新此頁之文。
     language_hint: 今可改啟動器之語，而此引導頁之文即時更新。
-    theme_hint: 擇 PCL-ME 初啟時所用之外觀模式。
+    theme_hint: 擇 PCL-L 初啟時所用之外觀模式。
   step_1:
     title: 用條
-    description: 今所用者，PCL-ME 也。此乃基於 PCL 而為之社群跨平台版，其源碼盡啟於 GitHub。用此軟體時，宜遵所在國家或地區之律令，並敬 PCL 原作者之用條與免責之辭。若欲開發或分發基於 PCL-ME 之軟體，請先覽我 README 中關於授權之說。
-    community_notice: 今所用者，PCL-ME 也。此乃基於 PCL 而為之社群跨平台版，其源碼盡啟於 GitHub。用此軟體時，宜遵所在國家或地區之律令，並敬 PCL 原作者之
+    description: 今所用者，PCL-L 也。此乃基於 PCL 而為之社群跨平台版，其源碼盡啟於 GitHub。用此軟體時，宜遵所在國家或地區之律令，並敬 PCL 原作者之用條與免責之辭。若欲開發或分發基於 PCL-L 之軟體，請先覽我 README 中關於授權之說。
+    community_notice: 今所用者，PCL-L 也。此乃基於 PCL 而為之社群跨平台版，其源碼盡啟於 GitHub。用此軟體時，宜遵所在國家或地區之律令，並敬 PCL 原作者之
     community_ack_label: 余已知此乃 PCL 社群所構之跨平台版。
-    eula_summary: '。若欲開發或分發基於 PCL-ME 之軟體，請先覽我 '
+    eula_summary: '。若欲開發或分發基於 PCL-L 之軟體，請先覽我 '
     open_eula: 用條與免責之辭
     open_readme: README
     readme_summary: 中關於授權之說。
@@ -3686,7 +3686,7 @@ welcome:
     decline: 拒絕並退出
   step_2:
     title: 俱備矣
-    description: PCL-ME 已可用。可先開入門教學，亦可由下列鏈接覽其專案與回饋之途。
+    description: PCL-L 已可用。可先開入門教學，亦可由下列鏈接覽其專案與回饋之途。
     tutorial: 開教學
     feedback: 提交反饋
     github: GitHub
@@ -3698,7 +3698,7 @@ desktop:
     hide_pet: 隱桌寵
     quit: 退出
   pet:
-    title: PCL-ME 桌寵
+    title: PCL-L 桌寵
     hint: 單擊、雙擊之行，可於設置中改之；拖之可移，右擊以啟選單，可啟遊戲及行他事。
   settings:
     header: 托盤與桌寵

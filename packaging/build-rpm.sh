@@ -11,33 +11,33 @@ trap 'rm -rf "$TOPDIR"' EXIT
 
 mkdir -p "$TOPDIR"/{BUILD,RPMS,SOURCES,SPECS,BUILDROOT}
 
-cat > "$TOPDIR/SPECS/plaincraftlauncher.spec" <<SPEC
-Name:           plaincraftlauncher
+cat > "$TOPDIR/SPECS/pcl-l.spec" <<SPEC
+Name:           pcl-l
 Version:        $VERSION
 Release:        1
-Summary:        PlainCraftLauncher - Linux
+Summary:        PCL-L (Plain Craft Launcher for Linux)
 License:        Apache-2.0
 BuildArch:      x86_64
 Requires:       glibc, icu, openssl-libs, zlib, fontconfig, freetype, libX11, libICE, libSM, libXrandr, libXi, mesa-libGL, glib2
 %description
-A cross-platform Plain Craft Launcher build for Linux, with instance
-management, mod downloads, Java runtime handling and P2P multiplayer.
+Plain Craft Launcher for Linux, with instance management, mod downloads,
+Java runtime handling and P2P multiplayer.
 %install
-mkdir -p %{buildroot}/opt/plaincraftlauncher
-cp -a $PAYLOAD/. %{buildroot}/opt/plaincraftlauncher/
-chmod 755 %{buildroot}/opt/plaincraftlauncher/PCL.Frontend.Avalonia
-install -Dpm 644 $SPEC_DIR/plaincraftlauncher.desktop %{buildroot}/usr/share/applications/plaincraftlauncher.desktop
-install -Dpm 644 $SPEC_DIR/../PCL.Frontend.Avalonia/Assets/icon.png %{buildroot}/usr/share/icons/hicolor/256x256/apps/plaincraftlauncher.png
+mkdir -p %{buildroot}/opt/pcl-l
+cp -a $PAYLOAD/. %{buildroot}/opt/pcl-l/
+chmod 755 %{buildroot}/opt/pcl-l/PCL.Frontend.Avalonia
+install -Dpm 644 $SPEC_DIR/pcl-l.desktop %{buildroot}/usr/share/applications/pcl-l.desktop
+install -Dpm 644 $SPEC_DIR/arch/pcl-l.png %{buildroot}/usr/share/icons/hicolor/256x256/apps/pcl-l.png
 %files
-/opt/plaincraftlauncher
-/usr/share/applications/plaincraftlauncher.desktop
-/usr/share/icons/hicolor/256x256/apps/plaincraftlauncher.png
+/opt/pcl-l
+/usr/share/applications/pcl-l.desktop
+/usr/share/icons/hicolor/256x256/apps/pcl-l.png
 %changelog
-* $(date '+%a %b %d %Y') PlainCraftLauncher - Linux <pcl-l@example.com> - $VERSION-1
+* $(date '+%a %b %d %Y') PCL-L <pcl-l@example.com> - $VERSION-1
 - Initial Linux package.
 SPEC
 
-rpmbuild -bb --define "_topdir $TOPDIR" "$TOPDIR/SPECS/plaincraftlauncher.spec" >/dev/null
+rpmbuild -bb --define "_topdir $TOPDIR" "$TOPDIR/SPECS/pcl-l.spec" >/dev/null
 mkdir -p "$OUT"
-cp "$TOPDIR"/RPMS/x86_64/*.rpm "$OUT/PlainCraftLauncher-Linux-${VERSION}-1.x86_64.rpm"
-echo "已生成: $OUT/PlainCraftLauncher-Linux-${VERSION}-1.x86_64.rpm"
+cp "$TOPDIR"/RPMS/x86_64/*.rpm "$OUT/PCL-L-${VERSION}-1.x86_64.rpm"
+echo "已生成: $OUT/PCL-L-${VERSION}-1.x86_64.rpm"

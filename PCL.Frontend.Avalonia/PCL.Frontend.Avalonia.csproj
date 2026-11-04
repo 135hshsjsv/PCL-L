@@ -7,10 +7,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>PCL.Frontend.Avalonia</AssemblyName>
     <RootNamespace>PCL.Frontend.Avalonia</RootNamespace>
-    <AssemblyTitle>PlainCraftLauncher - Linux</AssemblyTitle>
+    <AssemblyTitle>PCL-L</AssemblyTitle>
     <Company>PCL Community</Company>
-    <Product>PlainCraftLauncher - Linux</Product>
-    <Description>PlainCraftLauncher - Linux, a cross-platform Plain Craft Launcher build for Linux.</Description>
+    <Product>PCL-L</Product>
+    <Description>PCL-L, a Linux build of Plain Craft Launcher.</Description>
     <Version>1.0.0-beta.8</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>

@@ -42,7 +42,7 @@ public static class LauncherStartupBootstrapService
             .ToArray();
 
         var warningMessage = request.EnvironmentWarnings is { Count: > 0 }
-            ? "PCL-ME detected environment issues during startup:" + Environment.NewLine + Environment.NewLine +
+            ? "PCL-L detected environment issues during startup:" + Environment.NewLine + Environment.NewLine +
               string.Join(Environment.NewLine, request.EnvironmentWarnings) + Environment.NewLine + Environment.NewLine +
               "If you do not resolve these issues, some features may not work correctly..."
             : null;

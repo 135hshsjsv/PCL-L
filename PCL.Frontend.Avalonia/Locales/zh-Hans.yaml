@@ -860,7 +860,7 @@ shell:
         unsupported: 该百宝箱操作在 Avalonia 前端中暂未支持。
   multiplayer:
     title: P2P 联机
-    copyright: 联机功能由 Terracotta 提供（AGPL-3.0）。房间可与 HMCL、PCL2、ZL2、FCL 与 PCL-ME 互通。
+    copyright: 联机功能由 Terracotta 提供（AGPL-3.0）。房间可与 HMCL、PCL2、ZL2、FCL 与 PCL-L 互通。
     status:
       ready: 可以创建房间或加入房间。
       installing: 正在下载联机组件…
@@ -952,7 +952,7 @@ startup:
       actions:
         acknowledge: 我知道了
     update_log:
-      title: PCL-ME 已更新至 {version_branch} {version_base}
+      title: PCL-L 已更新至 {version_branch} {version_base}
       actions:
         confirm: 确定
         full_changelog: 完整更新日志
@@ -1034,7 +1034,7 @@ launch:
           cancel: 取消
     support:
       title: 第 {launch_count} 次启动
-      message: 你已经累计启动游戏 {launch_count} 次。如果 PCL-ME 对你有帮助，可以考虑赞助项目。
+      message: 你已经累计启动游戏 {launch_count} 次。如果 PCL-L 对你有帮助，可以考虑赞助项目。
       actions:
         sponsor: 赞助
         continue: 继续
@@ -1556,15 +1556,15 @@ setup:
         action: 打开社区页面
         command: 打开社区仓库
       maintainer:
-        summary: PCL-ME 维护者。
+        summary: PCL-L 维护者。
         action: 打开主页
         command: 打开 GitHub 个人主页
       contributor:
-        summary: PCL-ME 贡献者。
+        summary: PCL-L 贡献者。
         action: 打开主页
         command: 打开 GitHub 个人主页
       repo:
-        title: PCL-ME
+        title: PCL-L
         action: 打开仓库
         command: 打开项目仓库
     acknowledgements:
@@ -3082,7 +3082,7 @@ instance:
       delete: 删除实例
       patch_core: 修补核心
     artifacts:
-      direct_launch_entry_name: PCL-ME {instance_name}
+      direct_launch_entry_name: PCL-L {instance_name}
       launch_script_name: 启动 {instance_name}
     messages:
       select_to_view_details: 请选择一个实例后再查看详细内容。
@@ -3668,16 +3668,16 @@ save_detail:
     export_missing: 导出文件不存在
 welcome:
   step_0:
-    title: 欢迎使用 PCL-ME
+    title: 欢迎使用 PCL-L
     description: 请选择语言和明暗主题。两项默认均跟随系统，语言切换会立即更新当前页面文本。
     language_hint: 现在即可切换启动器语言，当前引导页文本会立刻刷新。
-    theme_hint: 选择 PCL-ME 首次启动时使用的外观模式。
+    theme_hint: 选择 PCL-L 首次启动时使用的外观模式。
   step_1:
     title: 使用条款
-    description: 您正在使用 PCL-ME。这是基于 PCL 的社区跨平台版本，源码在 GitHub 上完全开放。在使用该软件的时候，请遵守您所在国家/地区的法律法规，尊重 PCL 原作者的用户协议与免责声明。如果您想开发、分发基于 PCL-ME 的软件，请先阅读我们的 README 中关于许可证的说明。
-    community_notice: 您正在使用 PCL-ME。这是基于 PCL 的社区跨平台版本，源码在 GitHub 上完全开放。在使用该软件的时候，请遵守您所在国家/地区的法律法规，尊重 PCL 原作者的
+    description: 您正在使用 PCL-L。这是基于 PCL 的社区跨平台版本，源码在 GitHub 上完全开放。在使用该软件的时候，请遵守您所在国家/地区的法律法规，尊重 PCL 原作者的用户协议与免责声明。如果您想开发、分发基于 PCL-L 的软件，请先阅读我们的 README 中关于许可证的说明。
+    community_notice: 您正在使用 PCL-L。这是基于 PCL 的社区跨平台版本，源码在 GitHub 上完全开放。在使用该软件的时候，请遵守您所在国家/地区的法律法规，尊重 PCL 原作者的
     community_ack_label: 我已了解这是 PCL 的社区构建跨平台版本。
-    eula_summary: 。如果您想开发、分发基于 PCL-ME 的软件，请先阅读我们的
+    eula_summary: 。如果您想开发、分发基于 PCL-L 的软件，请先阅读我们的
     open_eula: 用户协议与免责声明
     open_readme: README
     readme_summary: 中关于许可证的说明。
@@ -3686,7 +3686,7 @@ welcome:
     decline: 拒绝并退出
   step_2:
     title: 一切就绪
-    description: PCL-ME 已准备就绪。您可以先打开入门教程，也可以稍后通过下方链接了解项目与反馈渠道。
+    description: PCL-L 已准备就绪。您可以先打开入门教程，也可以稍后通过下方链接了解项目与反馈渠道。
     tutorial: 打开教程
     feedback: 提交反馈
     github: GitHub
@@ -3698,7 +3698,7 @@ desktop:
     hide_pet: 隐藏桌宠
     quit: 退出
   pet:
-    title: PCL-ME 桌宠
+    title: PCL-L 桌宠
     hint: 单击或双击的行为可在设置中更改；拖动可移动，右键打开菜单以启动游戏或使用其他操作。
   settings:
     header: 托盘与桌宠

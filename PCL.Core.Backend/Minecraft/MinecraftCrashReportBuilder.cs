@@ -26,7 +26,7 @@ public static class MinecraftCrashReportBuilder
         var totalMemoryMb = (long)(request.Environment.TotalPhysicalMemoryBytes / 1024 / 1024);
         var builder = new StringBuilder();
 
-        builder.Append("PCL-ME version: ")
+        builder.Append("PCL-L version: ")
             .Append(request.LauncherVersionName)
             .Append(' ')
             .Append(LineBreak);

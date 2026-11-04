@@ -7,7 +7,7 @@
     xmlns:animation="clr-namespace:PCL.Frontend.Avalonia.Desktop.Animation"
     xmlns:controls="clr-namespace:PCL.Frontend.Avalonia.Desktop.Controls"
     xmlns:motion="clr-namespace:PCL.Frontend.Avalonia.Desktop.Animation"
-    Title="PlainCraftLauncher - Linux"
+    Title="PCL-L"
     Width="900"
     Height="540"
     MinWidth="810"
@@ -232,7 +232,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Foreground="{DynamicResource ColorBrushTitleBarBadgeForeground}"
-                    Text="ME" />
+                    Text="L" />
               </Border>
             </StackPanel>
 
@@ -258,7 +258,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Foreground="{DynamicResource ColorBrushTitleBarBadgeForeground}"
-                    Text="ME" />
+                    Text="L" />
               </Border>
             </StackPanel>
 
@@ -288,7 +288,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Foreground="{DynamicResource ColorBrushTitleBarBadgeForeground}"
-                    Text="ME" />
+                    Text="L" />
               </Border>
             </StackPanel>
           </Grid>

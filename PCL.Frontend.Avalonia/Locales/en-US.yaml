@@ -860,7 +860,7 @@ shell:
         unsupported: This toolbox action is not yet supported in the Avalonia frontend.
   multiplayer:
     title: P2P Multiplayer
-    copyright: Multiplayer is provided by Terracotta (AGPL-3.0). Rooms work with HMCL, PCL2, ZL2, FCL and PCL-ME.
+    copyright: Multiplayer is provided by Terracotta (AGPL-3.0). Rooms work with HMCL, PCL2, ZL2, FCL and PCL-L.
     status:
       ready: Ready to host or join a room.
       installing: Downloading the multiplayer component…
@@ -952,7 +952,7 @@ startup:
       actions:
         acknowledge: I understand
     update_log:
-      title: PCL-ME has been updated to {version_branch} {version_base}
+      title: PCL-L has been updated to {version_branch} {version_base}
       actions:
         confirm: OK
         full_changelog: Full changelog
@@ -1034,7 +1034,7 @@ launch:
           cancel: Cancel
     support:
       title: Launch milestone {launch_count}
-      message: You have launched the game {launch_count} times. If PCL-ME has been useful, consider sponsoring the project.
+      message: You have launched the game {launch_count} times. If PCL-L has been useful, consider sponsoring the project.
       actions:
         sponsor: Sponsor
         continue: Continue
@@ -1556,15 +1556,15 @@ setup:
         action: Open community page
         command: Open community repository
       maintainer:
-        summary: PCL-ME maintainer.
+        summary: PCL-L maintainer.
         action: Open profile
         command: Open GitHub profile
       contributor:
-        summary: PCL-ME contributor.
+        summary: PCL-L contributor.
         action: Open profile
         command: Open GitHub profile
       repo:
-        title: PCL-ME
+        title: PCL-L
         action: Open repository
         command: Open project repository
     acknowledgements:
@@ -3082,7 +3082,7 @@ instance:
       delete: Delete Instance
       patch_core: Patch Core
     artifacts:
-      direct_launch_entry_name: PCL-ME {instance_name}
+      direct_launch_entry_name: PCL-L {instance_name}
       launch_script_name: Launch {instance_name}
     messages:
       select_to_view_details: Select an instance to view details.
@@ -3668,16 +3668,16 @@ save_detail:
     export_missing: The exported file does not exist
 welcome:
   step_0:
-    title: Welcome to PCL-ME
+    title: Welcome to PCL-L
     description: Choose your language and color mode. Both follow your system by default, and language changes apply immediately.
     language_hint: Switch the launcher language now. The onboarding text updates as soon as you change it.
-    theme_hint: Pick the appearance mode you want PCL-ME to use on first launch.
+    theme_hint: Pick the appearance mode you want PCL-L to use on first launch.
   step_1:
     title: Terms of Use
-    description: You are using PCL-ME. This is a community-built cross-platform edition based on PCL, with its source code fully available on GitHub. When using this software, please comply with the laws and regulations of your country or region and respect the original PCL author's Terms of Use and Disclaimer. If you want to develop or distribute software based on PCL-ME, please first read the section in our README about licensing.
-    community_notice: "You are using PCL-ME. This is a community-built cross-platform edition based on PCL, with its source code fully available on GitHub. When using this software, please comply with the laws and regulations of your country or region and respect the original PCL author's "
+    description: You are using PCL-L. This is a community-built cross-platform edition based on PCL, with its source code fully available on GitHub. When using this software, please comply with the laws and regulations of your country or region and respect the original PCL author's Terms of Use and Disclaimer. If you want to develop or distribute software based on PCL-L, please first read the section in our README about licensing.
+    community_notice: "You are using PCL-L. This is a community-built cross-platform edition based on PCL, with its source code fully available on GitHub. When using this software, please comply with the laws and regulations of your country or region and respect the original PCL author's "
     community_ack_label: I understand this is a community-built multi-platform edition of PCL.
-    eula_summary: '. If you want to develop or distribute software based on PCL-ME, please first read the section in our '
+    eula_summary: '. If you want to develop or distribute software based on PCL-L, please first read the section in our '
     open_eula: Terms of Use and Disclaimer
     open_readme: README
     readme_summary: about licensing.
@@ -3686,7 +3686,7 @@ welcome:
     decline: Decline & Exit
   step_2:
     title: You're All Set!
-    description: PCL-ME is ready. Open the getting started tutorial or keep the community links nearby for later.
+    description: PCL-L is ready. Open the getting started tutorial or keep the community links nearby for later.
     tutorial: Open Tutorial
     feedback: Submit Feedback
     github: GitHub
@@ -3698,7 +3698,7 @@ desktop:
     hide_pet: Hide desktop pet
     quit: Quit
   pet:
-    title: PCL-ME desktop pet
+    title: PCL-L desktop pet
     hint: Configure the single-click and double-click actions in settings. Drag to move. Right-click for game launch and other actions.
   settings:
     header: Tray and desktop pet

@@ -860,7 +860,7 @@ shell:
         unsupported: Diese Werkzeugkasten-Aktion wird im Avalonia-Frontend noch nicht unterstützt.
   multiplayer:
     title: P2P-Mehrspieler
-    copyright: Mehrspieler wird von Terracotta bereitgestellt (AGPL-3.0). Räume funktionieren mit HMCL, PCL2, ZL2, FCL und PCL-ME.
+    copyright: Mehrspieler wird von Terracotta bereitgestellt (AGPL-3.0). Räume funktionieren mit HMCL, PCL2, ZL2, FCL und PCL-L.
     status:
       ready: Bereit, einen Raum zu erstellen oder beizutreten.
       installing: Mehrspieler-Komponente wird heruntergeladen…
@@ -952,7 +952,7 @@ startup:
       actions:
         acknowledge: Ich verstehe
     update_log:
-      title: PCL-ME wurde auf {version_branch} {version_base} aktualisiert
+      title: PCL-L wurde auf {version_branch} {version_base} aktualisiert
       actions:
         confirm: OK
         full_changelog: Vollständiges Änderungsprotokoll
@@ -1034,7 +1034,7 @@ launch:
           cancel: Abbrechen
     support:
       title: Start-Meilenstein {launch_count}
-      message: Du hast das Spiel {launch_count} Mal gestartet. Wenn PCL-ME hilfreich war, erwäge, das Projekt zu unterstützen.
+      message: Du hast das Spiel {launch_count} Mal gestartet. Wenn PCL-L hilfreich war, erwäge, das Projekt zu unterstützen.
       actions:
         sponsor: Unterstützen
         continue: Weiter
@@ -1556,15 +1556,15 @@ setup:
         action: Community-Seite öffnen
         command: Community-Repository öffnen
       maintainer:
-        summary: PCL-ME-Betreuer.
+        summary: PCL-L-Betreuer.
         action: Profil öffnen
         command: GitHub-Profil öffnen
       contributor:
-        summary: Mitwirkender an PCL-ME.
+        summary: Mitwirkender an PCL-L.
         action: Profil öffnen
         command: GitHub-Profil öffnen
       repo:
-        title: PCL-ME
+        title: PCL-L
         action: Repository öffnen
         command: Projekt-Repository öffnen
     acknowledgements:
@@ -3082,7 +3082,7 @@ instance:
       delete: Instanz löschen
       patch_core: Patch Core
     artifacts:
-      direct_launch_entry_name: PCL-ME {instance_name}
+      direct_launch_entry_name: PCL-L {instance_name}
       launch_script_name: Launch {instance_name}
     messages:
       select_to_view_details: Select an instance to view details.
@@ -3668,16 +3668,16 @@ save_detail:
     export_missing: Die exportierte Datei existiert nicht
 welcome:
   step_0:
-    title: Willkommen bei PCL-ME
+    title: Willkommen bei PCL-L
     description: Wählen Sie Sprache und Farbmodus aus. Beides folgt standardmäßig dem System, und Sprachänderungen werden auf diesem Bildschirm sofort übernommen.
     language_hint: Wechseln Sie die Launcher-Sprache jetzt. Der Text dieses Onboardings wird sofort aktualisiert.
-    theme_hint: Wählen Sie den Darstellungsmodus, den PCL-ME beim ersten Start verwenden soll.
+    theme_hint: Wählen Sie den Darstellungsmodus, den PCL-L beim ersten Start verwenden soll.
   step_1:
     title: Nutzungsbedingungen
-    description: Sie verwenden PCL-ME. Dies ist eine von der Community erstellte plattformübergreifende Edition auf Basis von PCL, deren Quellcode auf GitHub vollständig offengelegt ist. Bitte beachten Sie bei der Nutzung dieser Software die Gesetze und Vorschriften Ihres Landes oder Ihrer Region und respektieren Sie die Nutzungsbedingungen und den Haftungsausschluss des ursprünglichen PCL-Autors. Wenn Sie Software auf Basis von PCL-ME entwickeln oder verbreiten möchten, lesen Sie bitte zuerst in unserem README den Abschnitt zur Lizenz.
-    community_notice: 'Sie verwenden PCL-ME. Dies ist eine von der Community erstellte plattformübergreifende Edition auf Basis von PCL, deren Quellcode auf GitHub vollständig offengelegt ist. Bitte beachten Sie bei der Nutzung dieser Software die Gesetze und Vorschriften Ihres Landes oder Ihrer Region und respektieren Sie die '
+    description: Sie verwenden PCL-L. Dies ist eine von der Community erstellte plattformübergreifende Edition auf Basis von PCL, deren Quellcode auf GitHub vollständig offengelegt ist. Bitte beachten Sie bei der Nutzung dieser Software die Gesetze und Vorschriften Ihres Landes oder Ihrer Region und respektieren Sie die Nutzungsbedingungen und den Haftungsausschluss des ursprünglichen PCL-Autors. Wenn Sie Software auf Basis von PCL-L entwickeln oder verbreiten möchten, lesen Sie bitte zuerst in unserem README den Abschnitt zur Lizenz.
+    community_notice: 'Sie verwenden PCL-L. Dies ist eine von der Community erstellte plattformübergreifende Edition auf Basis von PCL, deren Quellcode auf GitHub vollständig offengelegt ist. Bitte beachten Sie bei der Nutzung dieser Software die Gesetze und Vorschriften Ihres Landes oder Ihrer Region und respektieren Sie die '
     community_ack_label: Ich verstehe, dass dies eine von der Community erstellte plattformübergreifende Edition von PCL ist.
-    eula_summary: ' des ursprünglichen PCL-Autors. Wenn Sie Software auf Basis von PCL-ME entwickeln oder verbreiten möchten, lesen Sie bitte zuerst in unserem '
+    eula_summary: ' des ursprünglichen PCL-Autors. Wenn Sie Software auf Basis von PCL-L entwickeln oder verbreiten möchten, lesen Sie bitte zuerst in unserem '
     open_eula: Nutzungsbedingungen und Haftungsausschluss
     open_readme: README
     readme_summary: den Abschnitt zur Lizenz.
@@ -3686,7 +3686,7 @@ welcome:
     decline: Ablehnen und beenden
   step_2:
     title: Alles bereit!
-    description: PCL-ME ist einsatzbereit. Öffnen Sie das Einstiegstutorial oder behalten Sie diese Community-Links für später im Blick.
+    description: PCL-L ist einsatzbereit. Öffnen Sie das Einstiegstutorial oder behalten Sie diese Community-Links für später im Blick.
     tutorial: Tutorial öffnen
     feedback: Feedback senden
     github: GitHub
@@ -3698,7 +3698,7 @@ desktop:
     hide_pet: Desktop-Begleiter ausblenden
     quit: Beenden
   pet:
-    title: PCL-ME Desktop-Begleiter
+    title: PCL-L Desktop-Begleiter
     hint: Einzel- und Doppelklick-Aktionen lassen sich in den Einstellungen ändern. Zum Verschieben ziehen. Rechtsklicken für Spielstart und weitere Aktionen.
   settings:
     header: Infobereich und Desktop-Begleiter

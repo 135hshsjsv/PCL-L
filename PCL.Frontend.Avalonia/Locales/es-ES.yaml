@@ -860,7 +860,7 @@ shell:
         unsupported: Esta acción de la caja de herramientas aún no es compatible con la interfaz de Avalonia.
   multiplayer:
     title: Multijugador P2P
-    copyright: El multijugador lo proporciona Terracotta (AGPL-3.0). Las salas funcionan con HMCL, PCL2, ZL2, FCL y PCL-ME.
+    copyright: El multijugador lo proporciona Terracotta (AGPL-3.0). Las salas funcionan con HMCL, PCL2, ZL2, FCL y PCL-L.
     status:
       ready: Listo para crear o unirte a una sala.
       installing: Descargando el componente multijugador…
@@ -952,7 +952,7 @@ startup:
       actions:
         acknowledge: Entiendo
     update_log:
-      title: PCL-ME se ha actualizado a {version_branch} {version_base}
+      title: PCL-L se ha actualizado a {version_branch} {version_base}
       actions:
         confirm: Aceptar
         full_changelog: Registro completo de cambios
@@ -1034,7 +1034,7 @@ launch:
           cancel: Cancelar
     support:
       title: Hito de lanzamiento {launch_count}
-      message: Has iniciado el juego {launch_count} veces. Si PCL-ME ha sido útil, considere patrocinar el proyecto.
+      message: Has iniciado el juego {launch_count} veces. Si PCL-L ha sido útil, considere patrocinar el proyecto.
       actions:
         sponsor: Patrocinador
         continue: Continuar
@@ -1559,15 +1559,15 @@ setup:
         action: Abrir página de la comunidad
         command: Repositorio comunitario abierto
       maintainer:
-        summary: Mantenedor de PCL-ME.
+        summary: Mantenedor de PCL-L.
         action: Abrir perfil
         command: Abrir perfil de GitHub
       contributor:
-        summary: Colaborador de PCL-ME.
+        summary: Colaborador de PCL-L.
         action: Abrir perfil
         command: Abrir perfil de GitHub
       repo:
-        title: PCL-ME
+        title: PCL-L
         action: Repositorio abierto
         command: Abrir repositorio de proyectos
     acknowledgements:
@@ -3085,7 +3085,7 @@ instance:
       delete: Eliminar instancia
       patch_core: Núcleo del parche
     artifacts:
-      direct_launch_entry_name: PCL-ME {instance_name}
+      direct_launch_entry_name: PCL-L {instance_name}
       launch_script_name: Lanzar {instance_name}
     messages:
       select_to_view_details: Seleccione una instancia para ver los detalles.
@@ -3677,16 +3677,16 @@ save_detail:
     export_missing: El archivo exportado no existe
 welcome:
   step_0:
-    title: Bienvenido a PCL-ME
+    title: Bienvenido a PCL-L
     description: Elige el idioma y el modo de color. Ambos siguen al sistema de forma predeterminada y el cambio de idioma se aplica de inmediato en esta pantalla.
     language_hint: Puedes cambiar el idioma del lanzador ahora mismo y el texto de esta guía se actualizará al instante.
-    theme_hint: Elige el modo visual que PCL-ME usará en el primer inicio.
+    theme_hint: Elige el modo visual que PCL-L usará en el primer inicio.
   step_1:
     title: Términos de uso
-    description: Estás usando PCL-ME. Esta es una edición multiplataforma creada por la comunidad basada en PCL, con el código fuente completamente abierto en GitHub. Al usar este software, debes cumplir las leyes y normativas de tu país o región y respetar los Términos de uso y la Exención de responsabilidad del autor original de PCL. Si quieres desarrollar o distribuir software basado en PCL-ME, primero lee en nuestro README la sección sobre la licencia.
-    community_notice: 'Estás usando PCL-ME. Esta es una edición multiplataforma creada por la comunidad basada en PCL, con el código fuente completamente abierto en GitHub. Al usar este software, debes cumplir las leyes y normativas de tu país o región y respetar los '
+    description: Estás usando PCL-L. Esta es una edición multiplataforma creada por la comunidad basada en PCL, con el código fuente completamente abierto en GitHub. Al usar este software, debes cumplir las leyes y normativas de tu país o región y respetar los Términos de uso y la Exención de responsabilidad del autor original de PCL. Si quieres desarrollar o distribuir software basado en PCL-L, primero lee en nuestro README la sección sobre la licencia.
+    community_notice: 'Estás usando PCL-L. Esta es una edición multiplataforma creada por la comunidad basada en PCL, con el código fuente completamente abierto en GitHub. Al usar este software, debes cumplir las leyes y normativas de tu país o región y respetar los '
     community_ack_label: Entiendo que esta es una edición multiplataforma de PCL creada por la comunidad.
-    eula_summary: ' del autor original de PCL. Si quieres desarrollar o distribuir software basado en PCL-ME, primero lee en nuestro '
+    eula_summary: ' del autor original de PCL. Si quieres desarrollar o distribuir software basado en PCL-L, primero lee en nuestro '
     open_eula: Términos de uso y Exención de responsabilidad
     open_readme: README
     readme_summary: la sección sobre la licencia.
@@ -3695,7 +3695,7 @@ welcome:
     decline: Rechazar y salir
   step_2:
     title: ¡Todo listo!
-    description: PCL-ME está listo. Abre el tutorial inicial o conserva estos enlaces de la comunidad para más tarde.
+    description: PCL-L está listo. Abre el tutorial inicial o conserva estos enlaces de la comunidad para más tarde.
     tutorial: Abrir tutorial
     feedback: Enviar comentarios
     github: GitHub
@@ -3707,7 +3707,7 @@ desktop:
     hide_pet: Ocultar la mascota
     quit: Salir
   pet:
-    title: Mascota de PCL-ME
+    title: Mascota de PCL-L
     hint: Las acciones de clic y doble clic se configuran en los ajustes. Arrastra para mover. Haz clic derecho para iniciar el juego y ver otras acciones.
   settings:
     header: Bandeja del sistema y mascota

@@ -1,10 +1,10 @@
-# Maintainer: PlainCraftLauncher - Linux <pcl-l@example.com>
-pkgname=plaincraftlauncher
+# Maintainer: PCL-L <pcl-l@example.com>
+pkgname=pcl-l
 pkgver=1.0.0
 pkgrel=1
-pkgdesc="PlainCraftLauncher - Linux (Plain Craft Launcher for Linux)"
+pkgdesc="PCL-L (Plain Craft Launcher for Linux)"
 arch=('x86_64')
-url="https://github.com/"
+url="https://github.com/135hshsjsv/PCL-L"
 license=('Apache-2.0')
 depends=('glibc' 'icu' 'openssl' 'zlib' 'fontconfig' 'freetype2' 'libx11' 'libice' 'libsm' 'libxrandr' 'libxi' 'mesa' 'glib2')
 options=('!strip' '!debug')
@@ -12,9 +12,9 @@ source=()
 sha256sums=()
 
 package() {
-  install -d "$pkgdir/opt/plaincraftlauncher"
-  cp -a "$PCL_PAYLOAD"/. "$pkgdir/opt/plaincraftlauncher/"
-  chmod 755 "$pkgdir/opt/plaincraftlauncher/PCL.Frontend.Avalonia"
-  install -Dm644 "$startdir/plaincraftlauncher.desktop" "$pkgdir/usr/share/applications/plaincraftlauncher.desktop"
-  install -Dm644 "$startdir/plaincraftlauncher.png" "$pkgdir/usr/share/icons/hicolor/256x256/apps/plaincraftlauncher.png"
+  install -d "$pkgdir/opt/pcl-l"
+  cp -a "$PCL_PAYLOAD"/. "$pkgdir/opt/pcl-l/"
+  chmod 755 "$pkgdir/opt/pcl-l/PCL.Frontend.Avalonia"
+  install -Dm644 "$startdir/pcl-l.desktop" "$pkgdir/usr/share/applications/pcl-l.desktop"
+  install -Dm644 "$startdir/pcl-l.png" "$pkgdir/usr/share/icons/hicolor/256x256/apps/pcl-l.png"
 }

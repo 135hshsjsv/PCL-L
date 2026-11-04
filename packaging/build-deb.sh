@@ -8,28 +8,28 @@ VERSION="1.0.0"
 ROOT="$(mktemp -d)"
 trap 'rm -rf "$ROOT"' EXIT
 
-APP=/opt/plaincraftlauncher
+APP=/opt/pcl-l
 mkdir -p "$ROOT$APP" "$ROOT/usr/share/applications" "$ROOT/usr/share/icons/hicolor/256x256/apps" "$ROOT/DEBIAN"
 cp -a "$PAYLOAD"/. "$ROOT$APP/"
 chmod 755 "$ROOT$APP/PCL.Frontend.Avalonia"
 
-cp "$(dirname "$0")/plaincraftlauncher.desktop" "$ROOT/usr/share/applications/plaincraftlauncher.desktop"
-cp "$(dirname "$0")/../PCL.Frontend.Avalonia/Assets/icon.png" "$ROOT/usr/share/icons/hicolor/256x256/apps/plaincraftlauncher.png"
+cp "$(dirname "$0")/pcl-l.desktop" "$ROOT/usr/share/applications/pcl-l.desktop"
+cp "$(dirname "$0")/arch/pcl-l.png" "$ROOT/usr/share/icons/hicolor/256x256/apps/pcl-l.png"
 
 cat > "$ROOT/DEBIAN/control" <<CTRL
-Package: plaincraftlauncher
+Package: pcl-l
 Version: $VERSION
 Section: games
 Priority: optional
 Architecture: amd64
-Maintainer: PlainCraftLauncher - Linux <pcl-l@example.com>
+Maintainer: PCL-L <pcl-l@example.com>
 Installed-Size: $(du -sk "$ROOT$APP" | cut -f1)
 Depends: libc6 (>= 2.34), libicu | libicu72 | libicu74, libssl3 | libssl3t64, zlib1g, libfontconfig1, libfreetype6, libx11-6, libice6, libsm6, libxrandr2, libxi6, libgl1, libglib2.0-0
-Description: PlainCraftLauncher - Linux
- A cross-platform Plain Craft Launcher build for Linux, with instance
- management, mod downloads, Java runtime handling and P2P multiplayer.
+Description: PCL-L
+ Plain Craft Launcher for Linux, with instance management, mod
+ downloads, Java runtime handling and P2P multiplayer.
 CTRL
 
 mkdir -p "$OUT"
-dpkg-deb --build --root-owner-group "$ROOT" "$OUT/PlainCraftLauncher-Linux-${VERSION}-amd64.deb"
-echo "已生成: $OUT/PlainCraftLauncher-Linux-${VERSION}-amd64.deb"
+dpkg-deb --build --root-owner-group "$ROOT" "$OUT/PCL-L-${VERSION}-amd64.deb"
+echo "已生成: $OUT/PCL-L-${VERSION}-amd64.deb"
