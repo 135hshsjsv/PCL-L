@@ -435,7 +435,7 @@ internal static class FrontendLaunchProfileRefreshService
     {
         var client = FrontendHttpProxyService.CreateLauncherHttpClient(
             TimeSpan.FromSeconds(30),
-            "PCL-ME-Avalonia/1.0");
+            "PCL-L-Avalonia/1.0");
         client.Timeout = TimeSpan.FromSeconds(30);
         return client;
     }

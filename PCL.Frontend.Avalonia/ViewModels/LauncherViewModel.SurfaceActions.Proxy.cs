@@ -53,7 +53,7 @@ internal sealed partial class LauncherViewModel
             using var client = FrontendHttpProxyService.CreateHttpClient(
                 configuration,
                 TimeSpan.FromSeconds(12),
-                "PCL-ME-Avalonia/1.0");
+                "PCL-L-Avalonia/1.0");
             using var request = new HttpRequestMessage(HttpMethod.Get, FrontendHttpProxyService.ProxyConnectivityProbeUri);
             using var response = await client.SendAsync(
                 request,

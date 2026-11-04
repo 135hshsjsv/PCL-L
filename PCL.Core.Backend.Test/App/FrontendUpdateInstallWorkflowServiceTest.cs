@@ -9,8 +9,8 @@ public sealed class FrontendUpdateInstallWorkflowServiceTest
     [TestMethod]
     public void ResolveInstallLayout_UsesExecutableDirectoryForPortableInstall()
     {
-        var executableDirectory = "/Applications/PCL-ME";
-        var processPath = "/Applications/PCL-ME/PCL.Frontend.Avalonia.exe";
+        var executableDirectory = "/Applications/PCL-L";
+        var processPath = "/Applications/PCL-L/PCL.Frontend.Avalonia.exe";
         var layout = FrontendUpdateInstallWorkflowService.ResolveInstallLayout(
             FrontendUpdateInstallPlatform.Windows,
             executableDirectory,
@@ -24,23 +24,23 @@ public sealed class FrontendUpdateInstallWorkflowServiceTest
     [TestMethod]
     public void ResolveInstallLayout_RecognizesMacAppBundle()
     {
-        var executableDirectory = "/Applications/PCL-ME.app/Contents/MacOS";
-        var processPath = "/Applications/PCL-ME.app/Contents/MacOS/PCL.Frontend.Avalonia";
+        var executableDirectory = "/Applications/PCL-L.app/Contents/MacOS";
+        var processPath = "/Applications/PCL-L.app/Contents/MacOS/PCL.Frontend.Avalonia";
         var layout = FrontendUpdateInstallWorkflowService.ResolveInstallLayout(
             FrontendUpdateInstallPlatform.MacOS,
             executableDirectory,
             processPath);
 
         Assert.AreEqual(FrontendUpdateInstallTargetKind.MacAppBundle, layout.TargetKind);
-        Assert.AreEqual(NormalizeForCurrentPlatform("/Applications/PCL-ME.app"), layout.TargetPath);
-        Assert.AreEqual(NormalizeForCurrentPlatform("/Applications/PCL-ME.app"), layout.RestartTargetPath);
+        Assert.AreEqual(NormalizeForCurrentPlatform("/Applications/PCL-L.app"), layout.TargetPath);
+        Assert.AreEqual(NormalizeForCurrentPlatform("/Applications/PCL-L.app"), layout.RestartTargetPath);
     }
 
     [TestMethod]
     public void ResolveExtractedPackageRoot_PrefersSingleTopLevelDirectory()
     {
         var tempRoot = Path.Combine(Path.GetTempPath(), "pcl-update-test-" + Guid.NewGuid().ToString("N"));
-        var packageRoot = Path.Combine(tempRoot, "PCL-ME-win-x64");
+        var packageRoot = Path.Combine(tempRoot, "PCL-L-win-x64");
         Directory.CreateDirectory(packageRoot);
 
         try
@@ -48,7 +48,7 @@ public sealed class FrontendUpdateInstallWorkflowServiceTest
             var resolved = FrontendUpdateInstallWorkflowService.ResolveExtractedPackageRoot(
                 FrontendUpdateInstallPlatform.Windows,
                 tempRoot,
-                "PCL-ME");
+                "PCL-L");
 
             Assert.AreEqual(packageRoot, resolved);
         }
@@ -62,7 +62,7 @@ public sealed class FrontendUpdateInstallWorkflowServiceTest
     public void ResolveExtractedPackageRoot_UsesExtractionRootForSingleTopLevelFile()
     {
         var tempRoot = Path.Combine(Path.GetTempPath(), "pcl-update-test-" + Guid.NewGuid().ToString("N"));
-        var packagedExecutable = Path.Combine(tempRoot, "PCL-ME");
+        var packagedExecutable = Path.Combine(tempRoot, "PCL-L");
         Directory.CreateDirectory(tempRoot);
         File.WriteAllText(packagedExecutable, string.Empty);
 
@@ -71,7 +71,7 @@ public sealed class FrontendUpdateInstallWorkflowServiceTest
             var resolved = FrontendUpdateInstallWorkflowService.ResolveExtractedPackageRoot(
                 FrontendUpdateInstallPlatform.Linux,
                 tempRoot,
-                "PCL-ME");
+                "PCL-L");
 
             Assert.AreEqual(tempRoot, resolved);
         }
@@ -85,7 +85,7 @@ public sealed class FrontendUpdateInstallWorkflowServiceTest
     public void ResolveExtractedPackageRoot_FindsNestedMacAppBundle()
     {
         var tempRoot = Path.Combine(Path.GetTempPath(), "pcl-update-test-" + Guid.NewGuid().ToString("N"));
-        var packageRoot = Path.Combine(tempRoot, "PCL-ME-macos-arm64", "PCL-ME.app");
+        var packageRoot = Path.Combine(tempRoot, "PCL-L-macos-arm64", "PCL-L.app");
         Directory.CreateDirectory(packageRoot);
 
         try
@@ -93,7 +93,7 @@ public sealed class FrontendUpdateInstallWorkflowServiceTest
             var resolved = FrontendUpdateInstallWorkflowService.ResolveExtractedPackageRoot(
                 FrontendUpdateInstallPlatform.MacOS,
                 tempRoot,
-                "PCL-ME.app");
+                "PCL-L.app");
 
             Assert.AreEqual(packageRoot, resolved);
         }
@@ -110,10 +110,10 @@ public sealed class FrontendUpdateInstallWorkflowServiceTest
             FrontendUpdateInstallPlatform.Windows,
             new FrontendUpdateInstallLayout(
                 FrontendUpdateInstallTargetKind.Directory,
-                "C:\\PCL-ME",
-                "C:\\PCL-ME",
-                "C:\\PCL-ME\\PCL.Frontend.Avalonia.exe",
-                "PCL-ME"),
+                "C:\\PCL-L",
+                "C:\\PCL-L",
+                "C:\\PCL-L\\PCL.Frontend.Avalonia.exe",
+                "PCL-L"),
             "C:\\Temp\\Extracted",
             processId: 4321);
 

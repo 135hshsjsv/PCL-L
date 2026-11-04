@@ -95,7 +95,7 @@ internal static partial class FrontendCommunityResourceCatalogService
     private static HttpClient CreateHttpClient()
     {
         var client = FrontendHttpProxyService.CreateLauncherHttpClient(TimeSpan.FromSeconds(15));
-        client.DefaultRequestHeaders.UserAgent.ParseAdd("PCL-ME-Frontend-Avalonia");
+        client.DefaultRequestHeaders.UserAgent.ParseAdd("PCL-L-Frontend-Avalonia");
         return client;
     }
 

@@ -58,7 +58,7 @@ public sealed class FrontendPlatformAdapterTest
             var adapter = new FrontendPlatformAdapter();
             var shortcut = adapter.CreateDirectLaunchShortcut(
                 root,
-                "/Applications/PCL-ME.app/Contents/MacOS/PCL.Frontend.Avalonia",
+                "/Applications/PCL-L.app/Contents/MacOS/PCL.Frontend.Avalonia",
                 "Backstabbed++",
                 "Backstabbed++",
                 microphoneUsageDescription);

@@ -1,5 +1,5 @@
 {
-  "__Author__": "PCL-ME",
+  "__Author__": "PCL-L",
   "Title": "Select Java Manually",
   "Description": "If automatic Java discovery does not find a runtime, you can pick the Java path yourself.",
   "Types": ["Launcher"],

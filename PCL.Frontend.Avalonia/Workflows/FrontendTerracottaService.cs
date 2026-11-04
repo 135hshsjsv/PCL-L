@@ -508,7 +508,7 @@ internal sealed class FrontendTerracottaService : IDisposable
     {
         using var client = FrontendHttpProxyService.CreateLauncherHttpClient(
             TimeSpan.FromMinutes(10),
-            "PCL-ME-Frontend-Avalonia");
+            "PCL-L-Frontend-Avalonia");
         using var response = await client
             .GetAsync(url, HttpCompletionOption.ResponseHeadersRead, cancellationToken)
             .ConfigureAwait(false);

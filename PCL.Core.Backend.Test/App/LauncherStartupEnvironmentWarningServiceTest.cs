@@ -46,7 +46,7 @@ public sealed class LauncherStartupEnvironmentWarningServiceTest
     public void GetWarningsUsesDedicatedMessageForMacAppTranslocation()
     {
         var request = new LauncherStartupEnvironmentWarningRequest(
-            "/private/var/folders/xx/yy/AppTranslocation/12345678-90AB-CDEF-1234-567890ABCDEF/d/PCL-ME.app/Contents/MacOS/",
+            "/private/var/folders/xx/yy/AppTranslocation/12345678-90AB-CDEF-1234-567890ABCDEF/d/PCL-L.app/Contents/MacOS/",
             new Version(10, 0, 19045, 0),
             true);
 

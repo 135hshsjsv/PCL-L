@@ -9,10 +9,10 @@ namespace PCL.Frontend.Avalonia.Workflows;
 
 internal static class FrontendSetupUpdateStatusService
 {
-    private const string GithubApiReleasesUrl = "https://api.github.com/repos/TheUnknownThing/PCL-ME/releases?per_page=20";
+    private const string GithubApiReleasesUrl = "https://api.github.com/repos/135hshsjsv/PCL-L/releases?per_page=20";
     private const string GithubApiVersion = "2022-11-28";
-    private const string GithubApiUserAgent = "PCL-ME-Frontend-Avalonia";
-    private const string GithubReleaseBaseUrl = "https://github.com/TheUnknownThing/PCL-ME/releases";
+    private const string GithubApiUserAgent = "PCL-L-Frontend-Avalonia";
+    private const string GithubReleaseBaseUrl = "https://github.com/135hshsjsv/PCL-L/releases";
     private static readonly HttpClient HttpClient = FrontendHttpProxyService.CreateLauncherHttpClient(TimeSpan.FromSeconds(10));
 
     public static FrontendSetupUpdateStatus CreateDefault(II18nService i18n)
@@ -292,7 +292,7 @@ internal static class FrontendSetupUpdateStatusService
         var archives = assets
             .Where(asset => !string.IsNullOrWhiteSpace(asset.Name))
             .Where(asset => !string.IsNullOrWhiteSpace(asset.BrowserDownloadUrl))
-            .Where(asset => asset.Name.StartsWith("PCL-ME-", StringComparison.OrdinalIgnoreCase))
+            .Where(asset => asset.Name.StartsWith("PCL-L-", StringComparison.OrdinalIgnoreCase))
             .Where(asset =>
                 asset.Name.EndsWith(".zip", StringComparison.OrdinalIgnoreCase)
                 || asset.Name.EndsWith(".tar.gz", StringComparison.OrdinalIgnoreCase))

@@ -79,15 +79,15 @@ public sealed class FrontendCliWorkflowTest
     public void BuildDesktopEntry_WithArguments_EmitsExecAndPath()
     {
         var entry = FrontendLinuxDesktopEntryService.BuildDesktopEntry(
-            "PCL-ME Demo",
-            ["/opt/PCL-ME/pcl-me", "launch-instance", "--instance", "My Instance"],
-            "/opt/PCL-ME/icon.png",
-            "/opt/PCL-ME");
+            "PCL-L Demo",
+            ["/opt/PCL-L/pcl-me", "launch-instance", "--instance", "My Instance"],
+            "/opt/PCL-L/icon.png",
+            "/opt/PCL-L");
 
-        StringAssert.Contains(entry, "Name=PCL-ME Demo");
-        StringAssert.Contains(entry, "Exec=/opt/PCL-ME/pcl-me launch-instance --instance \"My Instance\"");
-        StringAssert.Contains(entry, "Path=/opt/PCL-ME");
-        StringAssert.Contains(entry, "Icon=/opt/PCL-ME/icon.png");
+        StringAssert.Contains(entry, "Name=PCL-L Demo");
+        StringAssert.Contains(entry, "Exec=/opt/PCL-L/pcl-me launch-instance --instance \"My Instance\"");
+        StringAssert.Contains(entry, "Path=/opt/PCL-L");
+        StringAssert.Contains(entry, "Icon=/opt/PCL-L/icon.png");
     }
 
     [TestMethod]
@@ -148,7 +148,7 @@ public sealed class FrontendCliWorkflowTest
     public void ResolveOrCreateIconPath_MaterializesEmbeddedIconWhenPackagedIconsAreMissing()
     {
         var tempRoot = Path.Combine(Path.GetTempPath(), "pcl-me-icon-path-" + Guid.NewGuid().ToString("N"));
-        var executablePath = Path.Combine(tempRoot, "PCL-ME-linux-x64");
+        var executablePath = Path.Combine(tempRoot, "PCL-L-linux-x64");
         var applicationsDirectory = Path.Combine(tempRoot, "applications");
         var expectedIconPath = Path.Combine(
             tempRoot,

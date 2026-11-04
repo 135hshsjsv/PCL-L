@@ -169,7 +169,7 @@ internal sealed partial class LauncherViewModel
     private bool _isRefreshingFeedback;
     private DateTimeOffset _lastFeedbackRefreshUtc;
     private string _toolDownloadUrl = "https://example.invalid/files/demo-pack.zip";
-    private string _toolDownloadUserAgent = "PCL-ME-Avalonia/1.0";
+    private string _toolDownloadUserAgent = "PCL-L-Avalonia/1.0";
     private string _toolDownloadFolder = "/Users/demo/Downloads/PCL";
     private string _toolDownloadName = "demo-pack.zip";
     private string _officialSkinPlayerName = "Steve";
@@ -391,7 +391,7 @@ internal sealed partial class LauncherViewModel
         _openMicrosoftDeviceLinkCommand = new ActionCommand(OpenMicrosoftDeviceLink, () => !_isLaunchProfileActionInProgress);
         _submitAuthlibLaunchProfileCommand = new ActionCommand(() => _ = SubmitAuthlibLaunchProfileAsync(), () => !_isLaunchProfileActionInProgress);
         _useLittleSkinLaunchProfileCommand = new ActionCommand(ApplyLittleSkinLaunchProfilePreset, () => !_isLaunchProfileActionInProgress);
-        _openFeedbackCommand = CreateLinkCommand("Open feedback", "https://github.com/TheUnknownThing/PCL-ME/issues");
+        _openFeedbackCommand = CreateLinkCommand("Open feedback", "https://github.com/135hshsjsv/PCL-L/issues");
         _exportLogCommand = new ActionCommand(() => ExportLauncherLogs(includeAllLogs: false));
         _exportAllLogsCommand = new ActionCommand(() => ExportLauncherLogs(includeAllLogs: true));
         _openLogDirectoryCommand = new ActionCommand(OpenLauncherLogDirectory);
@@ -399,7 +399,7 @@ internal sealed partial class LauncherViewModel
         _downloadUpdateCommand = new ActionCommand(DownloadAvailableUpdate);
         _showUpdateDetailCommand = new ActionCommand(ShowAvailableUpdateDetail);
         _checkUpdateAgainCommand = new ActionCommand(() => _ = CheckForLauncherUpdatesAsync(forceRefresh: true, isUserInitiated: true));
-        _openFullChangelogCommand = CreateLinkCommand("View changelog", "https://github.com/TheUnknownThing/PCL-ME/releases");
+        _openFullChangelogCommand = CreateLinkCommand("View changelog", "https://github.com/135hshsjsv/PCL-L/releases");
         _resetGameManageSettingsCommand = new ActionCommand(ResetGameManageSurface);
         _resetLauncherMiscSettingsCommand = new ActionCommand(ResetLauncherMiscSurface);
         _exportSettingsCommand = new ActionCommand(ExportSettingsSnapshot);

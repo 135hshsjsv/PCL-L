@@ -247,7 +247,7 @@ internal sealed partial class LauncherViewModel
     private HttpClient CreateToolHttpClient()
     {
         var userAgent = string.IsNullOrWhiteSpace(ToolDownloadUserAgent)
-            ? "PCL-ME-Avalonia/1.0"
+            ? "PCL-L-Avalonia/1.0"
             : ToolDownloadUserAgent.Trim();
         return FrontendHttpProxyService.CreateLauncherHttpClient(
             TimeSpan.FromSeconds(100),

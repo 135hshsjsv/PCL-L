@@ -26,7 +26,7 @@ DEFAULT_JSON_PATH = (
 
 
 def sha1_from_url(url: str, timeout: float) -> str:
-    request = Request(url, headers={"User-Agent": "PCL-ME-SHA1-Recalculator/1.0"})
+    request = Request(url, headers={"User-Agent": "PCL-L-SHA1-Recalculator/1.0"})
     digest = hashlib.sha1()
     with urlopen(request, timeout=timeout) as response:
         while True:

@@ -1,6 +1,6 @@
 # PCL.Frontend.Avalonia
 
-`PCL.Frontend.Avalonia` 是 PCL-ME 当前正在维护的桌面前端。这里包含现行 Avalonia 应用、UI 资源、前端组合逻辑，以及用于发布桌面应用的前端入口。
+`PCL.Frontend.Avalonia` 是 PCL-L 当前正在维护的桌面前端。这里包含现行 Avalonia 应用、UI 资源、前端组合逻辑，以及用于发布桌面应用的前端入口。
 
 ## 范围
 

@@ -30,7 +30,7 @@ public sealed class LauncherFrontendPlanServiceTest
                 HasRunningTasks: true,
                 HasGameLogs: true)));
 
-        Assert.AreEqual(4, plan.Catalog.TopLevelPages.Count);
+        Assert.AreEqual(5, plan.Catalog.TopLevelPages.Count);
         Assert.AreEqual(2, plan.Consent.Prompts.Count);
         Assert.AreEqual(2, plan.Prompts.Count);
         Assert.AreEqual(LauncherFrontendPageKey.Launch, plan.Navigation.CurrentRoute.Page);

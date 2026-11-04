@@ -42,7 +42,7 @@ internal static partial class FrontendInstallWorkflowService
                 using var request = new HttpRequestMessage(HttpMethod.Get, candidateUrl);
                 if (candidateUrl.Contains("api.github.com", StringComparison.OrdinalIgnoreCase))
                 {
-                    request.Headers.UserAgent.ParseAdd("PCL-ME-Frontend");
+                    request.Headers.UserAgent.ParseAdd("PCL-L-Frontend");
                 }
 
                 using var response = HttpClient.Send(request);

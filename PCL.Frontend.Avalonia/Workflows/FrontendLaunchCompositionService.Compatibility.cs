@@ -83,7 +83,7 @@ internal static partial class FrontendLaunchCompositionService
             return globalCustomInfo;
         }
 
-        return manifestSummary.VersionType ?? "PCL-ME";
+        return manifestSummary.VersionType ?? "PCL-L";
     }
 
     private static string BuildIgnoredJavaCompatibilityWarning(

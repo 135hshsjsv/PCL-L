@@ -1,5 +1,5 @@
 {
-  "name": "PCL-ME",
+  "name": "PCL-L",
   "version": {
     "base": "1.0.0",
     "upstream": "2.12.1",
@@ -9,9 +9,9 @@
   "licenses": [
     {
       "name": "PCL.Core",
-      "info": "Copyright © PCL-ME Contributors",
-      "website": "https://github.com/TheUnknownThing/PCL-ME/tree/main/PCL.Core.Backend",
-      "license": "https://github.com/TheUnknownThing/PCL-ME/blob/main/LICENSE"
+      "info": "Copyright © PCL-L Contributors",
+      "website": "https://github.com/135hshsjsv/PCL-L/tree/main/PCL.Core.Backend",
+      "license": "https://github.com/135hshsjsv/PCL-L/blob/main/LICENSE"
     },
     {
       "name": "Java Launch Wrapper",

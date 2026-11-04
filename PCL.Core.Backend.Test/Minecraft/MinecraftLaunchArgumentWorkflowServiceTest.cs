@@ -21,7 +21,7 @@ public sealed class MinecraftLaunchArgumentWorkflowServiceTest
                 ReplacementValues: new Dictionary<string, string>
                 {
                     ["${auth_player_name}"] = "Demo Player",
-                    ["${version_type}"] = "PCL-ME",
+                    ["${version_type}"] = "PCL-L",
                     ["${game_directory}"] = @"C:\Minecraft Instances\Demo"
                 },
                 WorldName: null,
@@ -30,7 +30,7 @@ public sealed class MinecraftLaunchArgumentWorkflowServiceTest
                 HasOptiFine: false));
 
         Assert.AreEqual(
-            "-Dfile.encoding=COMPAT -Dstderr.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Xmx4G -Dos.name=\"Windows 10\" --username \"Demo Player\" --versionType PCL-ME --gameDir \"C:\\Minecraft Instances\\Demo\" --fullscreen --demo --server example.invalid --quickPlayMultiplayer \"play.example.invalid\"",
+            "-Dfile.encoding=COMPAT -Dstderr.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Xmx4G -Dos.name=\"Windows 10\" --username \"Demo Player\" --versionType PCL-L --gameDir \"C:\\Minecraft Instances\\Demo\" --fullscreen --demo --server example.invalid --quickPlayMultiplayer \"play.example.invalid\"",
             result.FinalArguments);
         Assert.IsFalse(result.ShouldWarnAboutLegacyServerWithOptiFine);
     }
@@ -98,7 +98,7 @@ public sealed class MinecraftLaunchArgumentWorkflowServiceTest
                     ["${auth_player_name}"] = "DemoPlayer",
                     ["${clientid}"] = "",
                     ["${auth_xuid}"] = "",
-                    ["${version_type}"] = "PCL-ME",
+                    ["${version_type}"] = "PCL-L",
                     ["${game_directory}"] = "/home/demo/.minecraft"
                 },
                 WorldName: null,
@@ -107,7 +107,7 @@ public sealed class MinecraftLaunchArgumentWorkflowServiceTest
                 HasOptiFine: false));
 
         Assert.AreEqual(
-            "-Dfile.encoding=COMPAT -Dstderr.encoding=UTF-8 -Dstdout.encoding=UTF-8 --username DemoPlayer --versionType PCL-ME --gameDir /home/demo/.minecraft",
+            "-Dfile.encoding=COMPAT -Dstderr.encoding=UTF-8 -Dstdout.encoding=UTF-8 --username DemoPlayer --versionType PCL-L --gameDir /home/demo/.minecraft",
             result.FinalArguments);
     }
 }

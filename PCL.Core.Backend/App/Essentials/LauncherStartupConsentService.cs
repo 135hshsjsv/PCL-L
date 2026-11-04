@@ -6,7 +6,7 @@ namespace PCL.Core.App.Essentials;
 
 public static class LauncherStartupConsentService
 {
-    private const string LatestReleaseUrl = "https://github.com/TheUnknownThing/PCL-ME/releases/latest";
+    private const string LatestReleaseUrl = "https://github.com/135hshsjsv/PCL-L/releases/latest";
     private const string EulaUrl = "https://shimo.im/docs/rGrd8pY8xWkt6ryW";
 
     public static LauncherStartupConsentResult Evaluate(LauncherStartupConsentRequest request)

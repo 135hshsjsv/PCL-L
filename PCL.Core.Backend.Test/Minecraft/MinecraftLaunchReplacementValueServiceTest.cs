@@ -18,7 +18,7 @@ public sealed class MinecraftLaunchReplacementValueServiceTest
                 LauncherName: "PCLME",
                 LauncherVersion: "2110",
                 VersionName: "Demo",
-                VersionType: "PCL-ME",
+                VersionType: "PCL-L",
                 GameDirectory: @"C:\Minecraft\instances\demo",
                 AssetsRoot: @"C:\Minecraft\assets",
                 UserProperties: "{}",

@@ -17,6 +17,7 @@ public sealed class LauncherFrontendNavigationServiceTest
             {
                 LauncherFrontendPageKey.Launch,
                 LauncherFrontendPageKey.Download,
+                LauncherFrontendPageKey.Multiplayer,
                 LauncherFrontendPageKey.Setup,
                 LauncherFrontendPageKey.Tools
             },

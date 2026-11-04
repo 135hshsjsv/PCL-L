@@ -8,9 +8,9 @@ namespace PCL.Frontend.Avalonia.ViewModels;
 internal sealed partial class LauncherViewModel
 {
     private const string WelcomeEulaUrl = "https://shimo.im/docs/rGrd8pY8xWkt6ryW";
-    private const string WelcomeReadmeUrl = "https://github.com/TheUnknownThing/PCL-ME#readme";
-    private const string WelcomeGitHubUrl = "https://github.com/TheUnknownThing/PCL-ME";
-    private const string WelcomeWikiUrl = "https://theunknownthing.github.io/PCL-ME/";
+    private const string WelcomeReadmeUrl = "https://github.com/135hshsjsv/PCL-L#readme";
+    private const string WelcomeGitHubUrl = "https://github.com/135hshsjsv/PCL-L";
+    private const string WelcomeWikiUrl = "https://theunknownthing.github.io/PCL-L/";
     private const int WelcomeTotalSteps = 3;
 
     private bool _welcomeOverlayDismissed;

@@ -18,7 +18,7 @@ public sealed class FrontendLauncherPathServiceTest
         }
 
         using var environment = new LauncherFolderTestEnvironment();
-        var runtimePaths = CreateRuntimePaths(Path.Combine(environment.RootDirectory, "PCL-ME.app", "Contents", "MacOS"));
+        var runtimePaths = CreateRuntimePaths(Path.Combine(environment.RootDirectory, "PCL-L.app", "Contents", "MacOS"));
 
         var resolvedPath = FrontendLauncherPathService.ResolveLauncherFolder(null, runtimePaths);
 
@@ -36,7 +36,7 @@ public sealed class FrontendLauncherPathServiceTest
         }
 
         using var environment = new LauncherFolderTestEnvironment();
-        var executableDirectory = Path.Combine(environment.RootDirectory, "Applications", "PCL-ME.app", "Contents", "MacOS");
+        var executableDirectory = Path.Combine(environment.RootDirectory, "Applications", "PCL-L.app", "Contents", "MacOS");
         Directory.CreateDirectory(Path.Combine(executableDirectory, ".minecraft"));
         var runtimePaths = CreateRuntimePaths(executableDirectory);
 

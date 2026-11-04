@@ -585,7 +585,7 @@ internal sealed class FrontendPlatformAdapter
     {
         var invalidCharacters = Path.GetInvalidFileNameChars();
         var sanitized = new string(value.Select(character => invalidCharacters.Contains(character) ? '-' : character).ToArray()).Trim();
-        return string.IsNullOrWhiteSpace(sanitized) ? "PCL-ME" : sanitized;
+        return string.IsNullOrWhiteSpace(sanitized) ? "PCL-L" : sanitized;
     }
 }
 

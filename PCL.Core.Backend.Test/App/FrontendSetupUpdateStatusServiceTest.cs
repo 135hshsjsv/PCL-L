@@ -23,7 +23,7 @@ public sealed class FrontendSetupUpdateStatusServiceTest
                 Assets:
                 [
                     new FrontendSetupUpdateStatusService.GithubReleaseAsset(
-                        "PCL-ME-win-x64.zip",
+                        "PCL-L-win-x64.zip",
                         "https://example.invalid/downloads/beta-win-x64.zip")
                 ]),
             new FrontendSetupUpdateStatusService.GithubRelease(
@@ -36,7 +36,7 @@ public sealed class FrontendSetupUpdateStatusServiceTest
                 Assets:
                 [
                     new FrontendSetupUpdateStatusService.GithubReleaseAsset(
-                        "PCL-ME-win-x64.zip",
+                        "PCL-L-win-x64.zip",
                         "https://example.invalid/downloads/stable-win-x64.zip")
                 ])
         };
@@ -68,10 +68,10 @@ public sealed class FrontendSetupUpdateStatusServiceTest
                 Assets:
                 [
                     new FrontendSetupUpdateStatusService.GithubReleaseAsset(
-                        "PCL-ME-linux-x64.tar.gz",
+                        "PCL-L-linux-x64.tar.gz",
                         "https://example.invalid/downloads/beta-linux-x64.tar.gz"),
                     new FrontendSetupUpdateStatusService.GithubReleaseAsset(
-                        "PCL-ME-win-x64.zip",
+                        "PCL-L-win-x64.zip",
                         "https://example.invalid/downloads/beta-win-x64.zip")
                 ]),
             new FrontendSetupUpdateStatusService.GithubRelease(
@@ -84,7 +84,7 @@ public sealed class FrontendSetupUpdateStatusServiceTest
                 Assets:
                 [
                     new FrontendSetupUpdateStatusService.GithubReleaseAsset(
-                        "PCL-ME-win-x64.zip",
+                        "PCL-L-win-x64.zip",
                         "https://example.invalid/downloads/stable-win-x64.zip")
                 ])
         };

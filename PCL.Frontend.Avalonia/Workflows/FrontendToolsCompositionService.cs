@@ -94,9 +94,9 @@ internal static class FrontendToolsCompositionService
                     LocalizeToolboxTitle(locale, "Create Shortcut", "Create shortcut", "Create shortcut"),
                     LocalizeToolboxTooltip(
                         locale,
-                        "Create a shortcut that points to the PCL-ME executable.",
-                        "Create a shortcut that points to the PCL-ME executable.",
-                        "Create a shortcut that points to the PCL-ME executable."),
+                        "Create a shortcut that points to the PCL-L executable.",
+                        "Create a shortcut that points to the PCL-L executable.",
+                        "Create a shortcut that points to the PCL-L executable."),
                     120,
                     false),
                 new FrontendToolboxActionDefinition(

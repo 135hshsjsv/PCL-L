@@ -53,10 +53,10 @@ public sealed class LauncherFrontendPageContentServiceTest
 
         Assert.AreEqual("Utility page", content.Eyebrow);
         Assert.AreEqual("Crash log and export history.", content.Summary);
-        Assert.AreEqual("PCL-ME-Crash-20260403.zip", content.Facts.Single(fact => fact.Label == "Archive").Value);
+        Assert.AreEqual("PCL-L-Crash-20260403.zip", content.Facts.Single(fact => fact.Label == "Archive").Value);
         Assert.AreEqual("3", content.Facts.Single(fact => fact.Label == "Source files").Value);
         Assert.IsTrue(content.Sections.Single().Lines.Any(line =>
-            line.Contains("Export PCL-ME-Crash-20260403.zip with 3 files", StringComparison.Ordinal)));
+            line.Contains("Export PCL-L-Crash-20260403.zip with 3 files", StringComparison.Ordinal)));
     }
 
     private static LauncherFrontendPageContent BuildContent(
@@ -101,7 +101,7 @@ public sealed class LauncherFrontendPageContentServiceTest
                 : null,
             includeCrashData
                 ? new LauncherFrontendCrashSurfaceData(
-                    "PCL-ME-Crash-20260403.zip",
+                    "PCL-L-Crash-20260403.zip",
                     3,
                     true,
                     "/Users/demo/.pcl/logs/PCL.log")
