@@ -1555,6 +1555,9 @@ setup:
         summary: 由社区协作维护的 PCL 相关项目团队。
         action: 打开社区页面
         command: 打开社区仓库
+      ce_maintainer:
+        summary: "PCL-CE 維護者。"
+      disclaimer: "該啟動器基於 PCL-CE 打造，如有侵權等立刪。"
       maintainer:
         summary: PCL-L 維護者。
         action: 開啟主頁

@@ -230,7 +230,8 @@ internal sealed partial class LauncherViewModel
             About = new SetupAboutLocalization
             {
                 AboutCardHeader = _i18n.T("setup.about.cards.about.header"),
-                AcknowledgementsCardHeader = _i18n.T("setup.about.cards.acknowledgements.header")
+                AcknowledgementsCardHeader = _i18n.T("setup.about.cards.acknowledgements.header"),
+                ProjectDisclaimer = _i18n.T("setup.about.project.disclaimer")
             },
             Log = new SetupLogLocalization
             {
@@ -563,6 +564,7 @@ internal sealed class SetupAboutLocalization
 {
     public required string AboutCardHeader { get; init; }
     public required string AcknowledgementsCardHeader { get; init; }
+    public required string ProjectDisclaimer { get; init; }
 }
 
 internal sealed class SetupLogLocalization

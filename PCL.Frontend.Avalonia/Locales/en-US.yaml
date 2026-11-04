@@ -1555,6 +1555,9 @@ setup:
         summary: Community-driven maintenance and collaboration for PCL-related projects.
         action: Open community page
         command: Open community repository
+      ce_maintainer:
+        summary: "Maintainer of PCL-CE."
+      disclaimer: "This launcher is built on PCL-CE. Rights holders may request removal at any time."
       maintainer:
         summary: PCL-L maintainer.
         action: Open profile

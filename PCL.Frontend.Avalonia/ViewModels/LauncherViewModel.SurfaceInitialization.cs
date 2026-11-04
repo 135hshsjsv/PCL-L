@@ -36,35 +36,29 @@ internal sealed partial class LauncherViewModel
                 _i18n.T("setup.about.project.original_author.action"),
                 CreateLinkCommand(_i18n.T("setup.about.project.original_author.command"), "https://ifdian.net/a/LTCat")),
             new AboutEntryViewModel(
-                "TheUnknownThing",
-                _i18n.T("setup.about.project.maintainer.summary"),
-                LoadLauncherBitmap("Images", "Heads", "TheUnknownThing.jpg"),
+                "tangge233",
+                _i18n.T("setup.about.project.ce_maintainer.summary"),
+                LoadLauncherBitmap("Images", "Heads", "tangge233.png"),
                 _i18n.T("setup.about.project.maintainer.action"),
-                CreateLinkCommand(_i18n.T("setup.about.project.maintainer.command"), "https://github.com/TheUnknownThing")),
+                CreateLinkCommand(_i18n.T("setup.about.project.maintainer.command"), "https://github.com/tangge233")),
             new AboutEntryViewModel(
-                "RayZh-hs",
+                "Guest114514",
                 _i18n.T("setup.about.project.maintainer.summary"),
-                LoadLauncherBitmap("Images", "Heads", "RayZh-hs.jpg"),
+                LoadLauncherBitmap("Images", "Heads", "Guest114514.png"),
                 _i18n.T("setup.about.project.maintainer.action"),
-                CreateLinkCommand(_i18n.T("setup.about.project.maintainer.command"), "https://github.com/RayZh-hs")),
+                CreateLinkCommand(_i18n.T("setup.about.project.maintainer.command"), "https://github.com/135hshsjsv")),
             new AboutEntryViewModel(
-                "wanoful",
-                _i18n.T("setup.about.project.maintainer.summary"),
-                LoadLauncherBitmap("Images", "Heads", "wanoful.png"),
-                _i18n.T("setup.about.project.maintainer.action"),
-                CreateLinkCommand(_i18n.T("setup.about.project.maintainer.command"), "https://github.com/wanoful")),
-            new AboutEntryViewModel(
-                "sclass53",
+                "qing_lin",
                 _i18n.T("setup.about.project.contributor.summary"),
-                LoadLauncherBitmap("Images", "Heads", "sclass53.png"),
+                LoadLauncherBitmap("Images", "Heads", "qing_lin.png"),
                 _i18n.T("setup.about.project.contributor.action"),
-                CreateLinkCommand(_i18n.T("setup.about.project.contributor.command"), "https://github.com/sclass53")),
+                CreateLinkCommand(_i18n.T("setup.about.project.contributor.command"), "https://github.com/qing-lin")),
             new AboutEntryViewModel(
                 _i18n.T("setup.about.project.repo.title"),
                 _setupComposition.About.LauncherVersionSummary,
                 LoadLauncherBitmap("Images", "icon.png"),
                 _i18n.T("setup.about.project.repo.action"),
-                CreateLinkCommand(_i18n.T("setup.about.project.repo.command"), "https://github.com/TheUnknownThing/PCL-ME"))
+                CreateLinkCommand(_i18n.T("setup.about.project.repo.command"), "https://github.com/135hshsjsv/PCL-L"))
         ]);
 
         ReplaceItems(AboutAcknowledgementEntries,

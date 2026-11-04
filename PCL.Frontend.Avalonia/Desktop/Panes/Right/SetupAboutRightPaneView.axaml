@@ -10,6 +10,7 @@
     <StackPanel Margin="25,10,25,10" Spacing="15">
       <controls:PclCard Header="{Binding SetupText.About.AboutCardHeader}" ContentMargin="21,40,21,16">
         <controls:PclCard.CardContent>
+          <StackPanel Spacing="10">
           <ItemsControl ItemsSource="{Binding AboutProjectEntries}">
             <ItemsControl.ItemTemplate>
               <DataTemplate>
@@ -45,6 +46,12 @@
               </DataTemplate>
             </ItemsControl.ItemTemplate>
           </ItemsControl>
+          <TextBlock
+              Foreground="{DynamicResource ColorBrushEntrySecondaryIdle}"
+              FontSize="11"
+              Text="{Binding SetupText.About.ProjectDisclaimer}"
+              TextWrapping="Wrap" />
+          </StackPanel>
         </controls:PclCard.CardContent>
       </controls:PclCard>
 

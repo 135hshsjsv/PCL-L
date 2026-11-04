@@ -1555,6 +1555,9 @@ setup:
         summary: 維護 PCL 諸相關項目之社羣協作團。
         action: 啟社羣頁
         command: 啟社羣倉庫
+      ce_maintainer:
+        summary: "PCL-CE 之維護者。"
+      disclaimer: "此啟動器基於 PCL-CE 而作，若有侵權，即刪。"
       maintainer:
         summary: PCL-L 維護者。
         action: 開主頁

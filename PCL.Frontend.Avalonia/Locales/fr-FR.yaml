@@ -1555,6 +1555,9 @@ setup:
         summary: Maintenance et collaboration pilotées par la communauté pour les projets liés à PCL.
         action: Ouvrir la page de la communauté
         command: Dépôt communautaire ouvert
+      ce_maintainer:
+        summary: "Mainteneur de PCL-CE."
+      disclaimer: "Ce lanceur est basé sur PCL-CE. Les ayants droit peuvent demander son retrait à tout moment."
       maintainer:
         summary: Responsable de maintenance de PCL-L.
         action: Ouvrir le profil

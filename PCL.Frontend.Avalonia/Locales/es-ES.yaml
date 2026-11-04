@@ -1558,6 +1558,9 @@ setup:
         summary: Mantenimiento y colaboración impulsados por la comunidad para proyectos relacionados con PCL.
         action: Abrir página de la comunidad
         command: Repositorio comunitario abierto
+      ce_maintainer:
+        summary: "Mantenedor de PCL-CE."
+      disclaimer: "Este lanzador está basado en PCL-CE. Los titulares de derechos pueden solicitar su retirada en cualquier momento."
       maintainer:
         summary: Mantenedor de PCL-L.
         action: Abrir perfil
