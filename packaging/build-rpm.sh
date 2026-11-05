@@ -4,7 +4,7 @@ set -euo pipefail
 
 PAYLOAD="${1:?用法: build-rpm.sh <发布目录> [输出目录]}"
 OUT="${2:-$(dirname "$0")/../dist}"
-VERSION="1.0.0"
+VERSION="1.0.1"
 SPEC_DIR="$(cd "$(dirname "$0")" && pwd)"
 TOPDIR="$(mktemp -d)"
 trap 'rm -rf "$TOPDIR"' EXIT

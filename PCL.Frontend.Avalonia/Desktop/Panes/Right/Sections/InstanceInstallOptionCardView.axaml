@@ -83,7 +83,12 @@
             Text="{Binding FilteredEmptyStateText}"
             TextWrapping="Wrap" />
 
-        <ItemsControl ItemsSource="{Binding VisibleChoices}">
+        <ScrollViewer
+            MaxHeight="320"
+            AllowAutoHide="False"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Auto">
+          <ItemsControl ItemsSource="{Binding VisibleChoices}">
           <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
               <VirtualizingStackPanel CacheLength="0.5" />
@@ -101,7 +106,8 @@
                   Title="{Binding Title}" />
             </DataTemplate>
           </ItemsControl.ItemTemplate>
-        </ItemsControl>
+          </ItemsControl>
+        </ScrollViewer>
       </StackPanel>
     </controls:PclCard.CardContent>
   </controls:PclCard>

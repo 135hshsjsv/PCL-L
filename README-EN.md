@@ -15,23 +15,23 @@
 
 | Distribution | File |
 | --- | --- |
-| Debian / Ubuntu / Mint / Pop!_OS / Deepin | `PCL-L-1.0.0-amd64.deb` |
-| Fedora / RHEL / Rocky / AlmaLinux / openSUSE | `PCL-L-1.0.0-1.x86_64.rpm` |
-| Arch / Manjaro / EndeavourOS | `PCL-L-1.0.0-1-x86_64.pkg.tar.zst` |
-| Any distribution (single file) | `PCL-L-1.0.0-x86_64.AppImage` |
-| Any distribution (portable) | `PCL-L-1.0.0-linux-x64-portable.tar.gz` |
+| Debian / Ubuntu / Mint / Pop!_OS / Deepin | `PCL-L-1.0.1-amd64.deb` |
+| Fedora / RHEL / Rocky / AlmaLinux / openSUSE | `PCL-L-1.0.1-1.x86_64.rpm` |
+| Arch / Manjaro / EndeavourOS | `PCL-L-1.0.1-1-x86_64.pkg.tar.zst` |
+| Any distribution (single file) | `PCL-L-1.0.1-x86_64.AppImage` |
+| Any distribution (portable) | `PCL-L-1.0.1-linux-x64-portable.tar.gz` |
 
 All files are published on [Releases](https://github.com/135hshsjsv/PCL-L/releases). Verify with `sha256sum -c SHA256SUMS`.
 
 ## Install
 
 ```bash
-sudo apt install ./PCL-L-1.0.0-amd64.deb        # Debian-based
-sudo dnf install ./PCL-L-1.0.0-1.x86_64.rpm      # Fedora-based
-sudo zypper install ./PCL-L-1.0.0-1.x86_64.rpm   # openSUSE
-sudo pacman -U PCL-L-1.0.0-1-x86_64.pkg.tar.zst  # Arch-based
+sudo apt install ./PCL-L-1.0.1-amd64.deb        # Debian-based
+sudo dnf install ./PCL-L-1.0.1-1.x86_64.rpm      # Fedora-based
+sudo zypper install ./PCL-L-1.0.1-1.x86_64.rpm   # openSUSE
+sudo pacman -U PCL-L-1.0.1-1-x86_64.pkg.tar.zst  # Arch-based
 
-chmod +x PCL-L-1.0.0-x86_64.AppImage && ./PCL-L-1.0.0-x86_64.AppImage
+chmod +x PCL-L-1.0.1-x86_64.AppImage && ./PCL-L-1.0.1-x86_64.AppImage
 ```
 
 The launcher installs to `/opt/pcl-l`, the desktop entry is `pcl-l.desktop` and the menu name is **PCL-L**.

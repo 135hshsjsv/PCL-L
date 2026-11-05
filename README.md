@@ -15,11 +15,11 @@
 
 | 发行版 | 文件 |
 | --- | --- |
-| Debian / Ubuntu / Mint / Pop!_OS / Deepin | `PCL-L-1.0.0-amd64.deb` |
-| Fedora / RHEL / Rocky / AlmaLinux / openSUSE | `PCL-L-1.0.0-1.x86_64.rpm` |
-| Arch / Manjaro / EndeavourOS | `PCL-L-1.0.0-1-x86_64.pkg.tar.zst` |
-| 任意发行版（单文件） | `PCL-L-1.0.0-x86_64.AppImage` |
-| 任意发行版（解压即用） | `PCL-L-1.0.0-linux-x64-portable.tar.gz` |
+| Debian / Ubuntu / Mint / Pop!_OS / Deepin | `PCL-L-1.0.1-amd64.deb` |
+| Fedora / RHEL / Rocky / AlmaLinux / openSUSE | `PCL-L-1.0.1-1.x86_64.rpm` |
+| Arch / Manjaro / EndeavourOS | `PCL-L-1.0.1-1-x86_64.pkg.tar.zst` |
+| 任意发行版（单文件） | `PCL-L-1.0.1-x86_64.AppImage` |
+| 任意发行版（解压即用） | `PCL-L-1.0.1-linux-x64-portable.tar.gz` |
 
 以上文件在 [Releases](https://github.com/135hshsjsv/PCL-L/releases) 中提供，校验用 `sha256sum -c SHA256SUMS`。
 
@@ -27,23 +27,23 @@
 
 ```bash
 # Debian 系
-sudo apt install ./PCL-L-1.0.0-amd64.deb
+sudo apt install ./PCL-L-1.0.1-amd64.deb
 
 # Fedora / RHEL 系
-sudo dnf install ./PCL-L-1.0.0-1.x86_64.rpm
+sudo dnf install ./PCL-L-1.0.1-1.x86_64.rpm
 
 # openSUSE
-sudo zypper install ./PCL-L-1.0.0-1.x86_64.rpm
+sudo zypper install ./PCL-L-1.0.1-1.x86_64.rpm
 
 # Arch 系
-sudo pacman -U PCL-L-1.0.0-1-x86_64.pkg.tar.zst
+sudo pacman -U PCL-L-1.0.1-1-x86_64.pkg.tar.zst
 
 # AppImage（需要 FUSE2；无 FUSE 时加 --appimage-extract-and-run）
-chmod +x PCL-L-1.0.0-x86_64.AppImage
-./PCL-L-1.0.0-x86_64.AppImage
+chmod +x PCL-L-1.0.1-x86_64.AppImage
+./PCL-L-1.0.1-x86_64.AppImage
 
 # 免安装
-tar -xzf PCL-L-1.0.0-linux-x64-portable.tar.gz -C ~/PCL-L
+tar -xzf PCL-L-1.0.1-linux-x64-portable.tar.gz -C ~/PCL-L
 ~/PCL-L/PCL.Frontend.Avalonia
 ```
 

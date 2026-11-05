@@ -30,6 +30,7 @@ internal sealed partial class LauncherViewModel
     private bool _instanceInstallAutoSelectedQsl;
     private bool _instanceInstallAutoSelectedOptiFabric;
     private int _instanceInstallOptionLoadGeneration;
+    private static readonly SemaphoreSlim InstanceInstallOptionLoadThrottle = new(3, 3);
     private string _instanceInstallPrefetchSignature = string.Empty;
 
     public string InstanceInstallSelectionTitle
@@ -384,8 +385,16 @@ internal sealed partial class LauncherViewModel
         string? error = null;
         try
         {
-            choices = await Task.Run(() => GetSelectableInstallChoices(isExistingInstance: true, optionTitle, minecraftVersion))
-                .ConfigureAwait(false);
+            await InstanceInstallOptionLoadThrottle.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                choices = await Task.Run(() => GetSelectableInstallChoices(isExistingInstance: true, optionTitle, minecraftVersion))
+                    .ConfigureAwait(false);
+            }
+            finally
+            {
+                InstanceInstallOptionLoadThrottle.Release();
+            }
         }
         catch (Exception ex)
         {
@@ -420,13 +429,27 @@ internal sealed partial class LauncherViewModel
                     TryApplyInstanceInstallAutoSelection(optionTitle, choices, minecraftVersion);
                 }
 
-                InitializeInstanceInstallSurface();
+                HandleInstanceInstallOptionChoicesUpdated(optionTitle);
             });
         }
         catch (Exception ex)
         {
             Debug.WriteLine($"[InstanceInstall] Failed to apply install option '{optionTitle}': {ex}");
         }
+    }
+
+    private void HandleInstanceInstallOptionChoicesUpdated(string optionTitle)
+    {
+        ReplaceItems(InstanceInstallHints, BuildInstanceInstallHintStrips());
+        UpdateInstanceInstallOptionCard(optionTitle);
+
+        if (_instanceInstallExpandedOptionTitle is { } expandedTitle
+            && !string.Equals(expandedTitle, optionTitle, StringComparison.Ordinal))
+        {
+            UpdateInstanceInstallOptionCard(expandedTitle);
+        }
+
+        RaisePropertyChanged(nameof(CanApplyInstanceInstall));
     }
 
     private void TryApplyInstanceInstallAutoSelection(
@@ -563,7 +586,7 @@ internal sealed partial class LauncherViewModel
             _instanceInstallAutoSelectedOptiFabric = false;
         }
 
-        ResetInstanceInstallOptionBrowserState();
+        CollapseInstanceInstallOptionBrowser();
         InitializeInstanceInstallSurface();
         RaiseInstallWorkflowProperties();
     }
@@ -609,9 +632,47 @@ internal sealed partial class LauncherViewModel
                 break;
         }
 
-        ResetInstanceInstallOptionBrowserState();
+        CollapseInstanceInstallOptionBrowser();
         InitializeInstanceInstallSurface();
         RaiseInstallWorkflowProperties();
+    }
+
+    /// <summary>
+    /// Collapses the expanded option card without discarding cached choice lists.
+    /// Clearing the cache here used to force a full re-fetch of every loader list on
+    /// each selection, which froze the install page for a moment and left the card
+    /// open with an empty body.
+    /// </summary>
+    private void CollapseInstanceInstallOptionBrowser()
+    {
+        _instanceInstallExpandedOptionTitle = null;
+    }
+
+    private void UpdateInstanceInstallOptionCard(string optionTitle)
+    {
+        var minecraftVersion = GetEffectiveMinecraftVersion(isExistingInstance: true)
+            .Replace("Minecraft ", string.Empty, StringComparison.Ordinal);
+        if (string.IsNullOrWhiteSpace(minecraftVersion) || !ShouldShowInstallOption(optionTitle, minecraftVersion))
+        {
+            return;
+        }
+
+        var blueprint = DownloadInstallOptionBlueprints
+            .FirstOrDefault(blueprint => string.Equals(blueprint.Title, optionTitle, StringComparison.Ordinal));
+        if (string.IsNullOrEmpty(blueprint.Title))
+        {
+            return;
+        }
+
+        var card = CreateInstanceInstallOptionCard(optionTitle, blueprint.IconName, minecraftVersion);
+        var index = FindInstanceInstallOptionCardIndex(optionTitle);
+        if (index >= 0)
+        {
+            InstanceInstallOptionCards[index].UpdateFrom(card);
+            return;
+        }
+
+        InitializeInstanceInstallSurface();
     }
 
     private void ResetInstanceInstallOptionBrowserState()

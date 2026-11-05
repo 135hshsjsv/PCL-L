@@ -6,6 +6,39 @@
     x:DataType="vm:LauncherViewModel"
     xmlns:controls="clr-namespace:PCL.Frontend.Avalonia.Desktop.Controls"
     DataContext="{ReflectionBinding Launcher}">
+  <UserControl.Styles>
+    <Style Selector="controls|PclButton.mp-action">
+      <Setter Property="Opacity" Value="1" />
+      <Setter Property="RenderTransform" Value="translateY(0px)" />
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.16" Easing="CubicEaseOut" />
+          <DoubleTransition Property="Opacity" Duration="0:0:0.16" />
+        </Transitions>
+      </Setter>
+      <Style.Animations>
+        <Animation Duration="0:0:0.5" Easing="CubicEaseOut" FillMode="Forward">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="RenderTransform" Value="translateY(10px)" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="RenderTransform" Value="translateY(0px)" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="controls|PclButton.mp-action:pointerover">
+      <Setter Property="RenderTransform" Value="scale(1.05)" />
+    </Style>
+    <Style Selector="controls|PclButton.mp-action:disabled">
+      <Setter Property="Opacity" Value="0.45" />
+    </Style>
+    <Style Selector="controls|PclButton.mp-action:disabled:pointerover">
+      <Setter Property="RenderTransform" Value="scale(1)" />
+    </Style>
+  </UserControl.Styles>
   <ScrollViewer VerticalScrollBarVisibility="Auto">
     <StackPanel Margin="25,10,25,25" Spacing="15">
       <controls:PclCard Header="{Binding MultiplayerTitleText}" ContentMargin="25,40,25,20">
@@ -55,6 +88,7 @@
               <controls:PclButton
                   Height="35"
                   MinWidth="120"
+                  Classes="mp-action"
                   ColorType="Highlight"
                   Command="{Binding StartMultiplayerHostingCommand}"
                   IsEnabled="{Binding CanStartMultiplayerHosting}"
@@ -63,6 +97,7 @@
                   Height="35"
                   MinWidth="120"
                   Margin="15,0,0,0"
+                  Classes="mp-action"
                   Command="{Binding JoinMultiplayerRoomCommand}"
                   IsEnabled="{Binding CanJoinMultiplayerRoom}"
                   Text="{Binding MultiplayerJoinButtonText}" />
@@ -70,6 +105,7 @@
                   Height="35"
                   MinWidth="120"
                   Margin="15,0,0,0"
+                  Classes="mp-action"
                   Command="{Binding LeaveMultiplayerRoomCommand}"
                   IsEnabled="{Binding CanLeaveMultiplayerRoom}"
                   Text="{Binding MultiplayerLeaveButtonText}" />
