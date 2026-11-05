@@ -90,18 +90,25 @@ internal static partial class FrontendCommunityResourceCatalogService
                 || entry.SupportedLoaders.Any(loader => string.Equals(loader, query.Loader, StringComparison.OrdinalIgnoreCase)));
         }
 
+        // A Chinese nickname such as "钠" must surface the real Sodium project first instead of
+        // localisation packs or detector mods whose titles merely mention the name.
+        int CanonicalRank(FrontendDownloadResourceEntry entry) =>
+            FrontendSearchLocalization.MatchesCanonicalProject(entry.Title, query.SearchText) ? 1 : 0;
+
         return query.Sort switch
         {
             "downloads" => filtered.OrderByDescending(entry => entry.DownloadCount).ThenBy(entry => entry.Title, StringComparer.OrdinalIgnoreCase),
             "follows" => filtered.OrderByDescending(entry => entry.FollowCount).ThenBy(entry => entry.Title, StringComparer.OrdinalIgnoreCase),
             "release" => filtered.OrderByDescending(entry => entry.ReleaseRank).ThenBy(entry => entry.Title, StringComparer.OrdinalIgnoreCase),
             "update" => filtered.OrderByDescending(entry => entry.UpdateRank).ThenBy(entry => entry.Title, StringComparer.OrdinalIgnoreCase),
-            "relevance" => filtered.OrderByDescending(entry => entry.Title.Contains(query.SearchText, StringComparison.OrdinalIgnoreCase))
+            "relevance" => filtered.OrderByDescending(CanonicalRank)
+                .ThenByDescending(entry => entry.Title.Contains(query.SearchText, StringComparison.OrdinalIgnoreCase))
                 .ThenByDescending(entry => entry.DownloadCount)
                 .ThenBy(entry => entry.Title, StringComparer.OrdinalIgnoreCase),
             _ => string.IsNullOrWhiteSpace(query.SearchText)
                 ? filtered.OrderByDescending(entry => entry.DownloadCount).ThenBy(entry => entry.Title, StringComparer.OrdinalIgnoreCase)
-                : filtered.OrderByDescending(entry => entry.Title.Contains(query.SearchText, StringComparison.OrdinalIgnoreCase))
+                : filtered.OrderByDescending(CanonicalRank)
+                    .ThenByDescending(entry => entry.Title.Contains(query.SearchText, StringComparison.OrdinalIgnoreCase))
                     .ThenByDescending(entry => entry.DownloadCount)
                     .ThenBy(entry => entry.Title, StringComparer.OrdinalIgnoreCase)
         };

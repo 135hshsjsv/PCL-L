@@ -213,7 +213,11 @@ internal sealed partial class LauncherViewModel
         var searchQuery = DownloadResourceSearchQuery.Trim();
         if (!string.IsNullOrWhiteSpace(searchQuery))
         {
-            entries = entries.Where(entry => entry.SearchText.Contains(searchQuery, StringComparison.OrdinalIgnoreCase));
+            // A Chinese query is matched against its English translation as well, otherwise
+            // "钠" would only keep the entries whose title literally contains 钠 and drop Sodium.
+            var searchTerms = FrontendSearchLocalization.Expand(searchQuery);
+            entries = entries.Where(entry => searchTerms.Any(term =>
+                entry.SearchText.Contains(term, StringComparison.OrdinalIgnoreCase)));
         }
 
         var sourceFilter = GetSelectedFilterValue(DownloadResourceSourceOptions, SelectedDownloadResourceSourceIndex);

@@ -100,6 +100,53 @@ internal static class FrontendSearchLocalization
         ["铱"] = "iridium"
     };
 
+    /// <summary>Chinese nickname → the exact English project name it refers to.</summary>
+    private static readonly Dictionary<string, string> CanonicalProjects = new(StringComparer.OrdinalIgnoreCase)
+    {
+        ["钠"] = "Sodium",
+        ["锂"] = "Lithium",
+        ["星光"] = "Starlight",
+        ["铷"] = "Rubidium",
+        ["镁"] = "Magnesium",
+        ["嵌入式"] = "Embeddium",
+        ["铱"] = "Iridium",
+        ["机械动力"] = "Create",
+        ["通用机械"] = "Mekanism",
+        ["工业时代"] = "Industrial Craft",
+        ["应用能源"] = "Applied Energistics 2",
+        ["神秘时代"] = "Thaumcraft",
+        ["植物魔法"] = "Botania",
+        ["匠魂"] = "Tinkers' Construct",
+        ["暮色森林"] = "Twilight Forest",
+        ["农夫乐事"] = "Farmer's Delight",
+        ["精妙背包"] = "Sophisticated Backpacks",
+        ["苹果皮"] = "AppleSkin",
+        ["旅行地图"] = "JourneyMap",
+        ["物品管理器"] = "Just Enough Items",
+        ["高清修复"] = "OptiFine",
+        ["小地图"] = "Xaero's Minimap"
+    };
+
+    /// <summary>
+    /// True when the result is the project the query is actually asking for, e.g. "钠" → "Sodium".
+    /// Used to float the real mod above localisation packs and detector mods that merely mention its name.
+    /// </summary>
+    public static bool MatchesCanonicalProject(string? title, string? query)
+    {
+        if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(query))
+        {
+            return false;
+        }
+
+        if (!CanonicalProjects.TryGetValue(query.Trim(), out var canonical))
+        {
+            return false;
+        }
+
+        var normalizedTitle = title.Trim();
+        return string.Equals(normalizedTitle, canonical, StringComparison.OrdinalIgnoreCase);
+    }
+
     /// <summary>Returns the English search term for the query, or the query itself when nothing is known.</summary>
     public static string Translate(string query)
     {
