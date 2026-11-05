@@ -29,6 +29,7 @@ internal static class FrontendLoggingBootstrap
             LogWrapper.AttachLogger(_logger);
             LogWrapper.OnLog += OnLog;
             AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
+            global::Avalonia.Threading.Dispatcher.UIThread.UnhandledException += OnDispatcherUnhandledException;
             TaskScheduler.UnobservedTaskException += OnUnobservedTaskException;
             _isInitialized = true;
         }
@@ -52,6 +53,7 @@ internal static class FrontendLoggingBootstrap
             _isInitialized = false;
             LogWrapper.OnLog -= OnLog;
             AppDomain.CurrentDomain.UnhandledException -= OnUnhandledException;
+            global::Avalonia.Threading.Dispatcher.UIThread.UnhandledException -= OnDispatcherUnhandledException;
             TaskScheduler.UnobservedTaskException -= OnUnobservedTaskException;
         }
 
@@ -102,6 +104,14 @@ internal static class FrontendLoggingBootstrap
         }
 
         LogWrapper.Fatal("Frontend", $"Unhandled exception object: {args.ExceptionObject}");
+    }
+
+    private static void OnDispatcherUnhandledException(object? sender, global::Avalonia.Threading.DispatcherUnhandledExceptionEventArgs args)
+    {
+        // A single bad layout/animation frame must not take the whole launcher down: log it,
+        // mark it handled and let the next frame rebuild the visual tree.
+        LogWrapper.Error(args.Exception, "Frontend", $"Unhandled dispatcher exception (handled={args.Handled})");
+        args.Handled = true;
     }
 
     private static void OnUnobservedTaskException(object? sender, UnobservedTaskExceptionEventArgs args)

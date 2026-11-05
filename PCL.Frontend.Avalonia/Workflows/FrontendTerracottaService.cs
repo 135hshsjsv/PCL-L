@@ -117,7 +117,8 @@ internal sealed class FrontendTerracottaService : IDisposable
             try
             {
                 await DownloadAsync(url, downloadPath, progress, cancellationToken).ConfigureAwait(false);
-                ExtractExecutable(downloadPath);
+                // Extracting a ~12 MB tar.gz is blocking IO; keep it off the UI thread.
+                await Task.Run(() => ExtractExecutable(downloadPath), cancellationToken).ConfigureAwait(false);
                 TryDelete(downloadPath);
                 progress?.Report(1d);
                 return;

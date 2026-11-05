@@ -478,6 +478,12 @@ internal sealed partial class LauncherViewModel
 
     private void ApplyMultiplayerState(FrontendTerracottaState state)
     {
+        if (!global::Avalonia.Threading.Dispatcher.UIThread.CheckAccess())
+        {
+            global::Avalonia.Threading.Dispatcher.UIThread.Post(() => ApplyMultiplayerState(state));
+            return;
+        }
+
         _multiplayerCurrentState = state.State;
         MultiplayerRoomCode = state.Room is { Length: > 0 } room && state.State is not "waiting"
             ? room
