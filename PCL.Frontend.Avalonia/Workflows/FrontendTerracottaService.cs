@@ -84,7 +84,21 @@ internal sealed class FrontendTerracottaService : IDisposable
         {
             lock (_processLock)
             {
-                return _process is { HasExited: false };
+                // An attached instance is owned by another launcher process, so we have no
+                // Process handle for it, but it is still alive and serving our requests.
+                return _process is { HasExited: false } || _attachedToExternalInstance;
+            }
+        }
+    }
+
+    /// <summary>True when we reuse a Terracotta instance started by another process.</summary>
+    public bool IsAttached
+    {
+        get
+        {
+            lock (_processLock)
+            {
+                return _attachedToExternalInstance;
             }
         }
     }

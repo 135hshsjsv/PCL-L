@@ -273,7 +273,17 @@ internal sealed partial class LauncherViewModel
 
             MultiplayerStatusText = LT("shell.multiplayer.status.starting");
             await service.StartAsync(cancellationToken);
-            await service.ResetToIdleAsync(cancellationToken);
+
+            // Never discard a room that is already running: only normalise a genuinely idle
+            // instance back to "waiting". Re-entering the page used to reset live rooms here.
+            if (!_isMultiplayerSessionActive)
+            {
+                var current = await service.GetStateAsync(cancellationToken);
+                if (string.Equals(current.State, "waiting", StringComparison.OrdinalIgnoreCase))
+                {
+                    await service.ResetToIdleAsync(cancellationToken);
+                }
+            }
 
             _multiplayerStateIndex = -1;
             ApplyMultiplayerState(FrontendTerracottaState.Empty);
@@ -391,7 +401,7 @@ internal sealed partial class LauncherViewModel
         try
         {
             var service = _terracottaService;
-            if (service is { IsRunning: true })
+            if (service is not null && (service.IsRunning || service.IsAttached))
             {
                 await service.ResetToIdleAsync(cancellationToken);
             }
@@ -482,6 +492,12 @@ internal sealed partial class LauncherViewModel
         {
             global::Avalonia.Threading.Dispatcher.UIThread.Post(() => ApplyMultiplayerState(state));
             return;
+        }
+
+        // Observe rooms created elsewhere (attached instance) so the action buttons stay usable.
+        if (state.State is "host-starting" or "host-ok" or "guest-connecting" or "guest-starting" or "guest-ok")
+        {
+            _isMultiplayerSessionActive = true;
         }
 
         _multiplayerCurrentState = state.State;
