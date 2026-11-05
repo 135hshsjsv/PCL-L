@@ -176,7 +176,9 @@ internal static partial class FrontendCommunityResourceCatalogService
 
         if (!string.IsNullOrWhiteSpace(query.SearchText))
         {
-            parameters.Add($"query={Uri.EscapeDataString(query.SearchText)}");
+            // Modrinth indexes English titles; translate Chinese keywords before searching.
+            var searchTerm = FrontendSearchLocalization.Translate(query.SearchText);
+            parameters.Add($"query={Uri.EscapeDataString(searchTerm)}");
         }
 
         return $"{baseUrl}?{string.Join("&", parameters)}";

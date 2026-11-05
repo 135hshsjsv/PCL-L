@@ -69,7 +69,7 @@ sudo dnf install java-21-openjdk  # Fedora 系
 
 - **版本管理**：原版、Forge、NeoForge、Fabric、Quilt、LiteLoader、OptiFine、Cleanroom 及各配套 API 一键安装
 - **P2P 联机**：内置 [Terracotta](https://github.com/burningtnt/Terracotta)，房间可与 HMCL、PCL2、ZL2、FCL、PCL-L 互通，无需公网 IP
-- **资源下载**：Modrinth / CurseForge 双源，模组、整合包、资源包、光影、世界
+- **资源下载**：Modrinth / CurseForge 双源，模组、整合包、资源包、光影、世界，支持中文关键词搜索（自动映射为英文检索词）
 - **实例修复**：缺失文件补全、依赖检查、崩溃分析
 - **下载源与代理**：官方源 / 镜像源切换，HTTP 代理、DNS over HTTPS
 

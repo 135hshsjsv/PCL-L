@@ -67,10 +67,13 @@ internal static partial class FrontendCommunityResourceCatalogService
 
         if (!string.IsNullOrWhiteSpace(query.SearchText))
         {
-            filtered = filtered.Where(entry =>
-                entry.Title.Contains(query.SearchText, StringComparison.OrdinalIgnoreCase)
-                || entry.Info.Contains(query.SearchText, StringComparison.OrdinalIgnoreCase)
-                || entry.Tags.Any(tag => tag.Contains(query.SearchText, StringComparison.OrdinalIgnoreCase)));
+            // Remote results carry English titles, so a Chinese query is also matched against
+            // its translation; the original term still matches titles that are already localized.
+            var searchTerms = FrontendSearchLocalization.Expand(query.SearchText);
+            filtered = filtered.Where(entry => searchTerms.Any(term =>
+                entry.Title.Contains(term, StringComparison.OrdinalIgnoreCase)
+                || entry.Info.Contains(term, StringComparison.OrdinalIgnoreCase)
+                || entry.Tags.Any(tag => tag.Contains(term, StringComparison.OrdinalIgnoreCase))));
         }
 
         if (!string.IsNullOrWhiteSpace(query.Version))

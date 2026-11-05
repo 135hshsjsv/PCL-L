@@ -180,7 +180,8 @@ internal static partial class FrontendCommunityResourceCatalogService
 
         if (!string.IsNullOrWhiteSpace(query.SearchText))
         {
-            parameters.Add($"searchFilter={Uri.EscapeDataString(query.SearchText)}");
+            var searchTerm = FrontendSearchLocalization.Translate(query.SearchText);
+            parameters.Add($"searchFilter={Uri.EscapeDataString(searchTerm)}");
         }
 
         return $"{baseUrl}?{string.Join("&", parameters)}";
