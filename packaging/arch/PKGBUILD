@@ -1,6 +1,6 @@
 # Maintainer: PCL-L <pcl-l@example.com>
 pkgname=pcl-l
-pkgver=1.0.3
+pkgver=1.0.2
 pkgrel=1
 pkgdesc="PCL-L (Plain Craft Launcher for Linux)"
 arch=('x86_64')

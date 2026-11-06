@@ -4,7 +4,7 @@ set -euo pipefail
 
 PAYLOAD="${1:?用法: build-deb.sh <发布目录> [输出目录]}"
 OUT="${2:-$(dirname "$0")/../dist}"
-VERSION="1.0.3"
+VERSION="1.0.2"
 ROOT="$(mktemp -d)"
 trap 'rm -rf "$ROOT"' EXIT
 
