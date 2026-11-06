@@ -104,6 +104,7 @@ internal static partial class FrontendCommunityResourceCatalogService
             iconUrl,
             iconPath,
             config.IconName,
+            null,
             FrontendCommunityProjectService.CreateCompDetailTarget(projectId),
             downloads,
             follows,

@@ -313,11 +313,14 @@ internal sealed class DownloadResourceEntryViewModel(
     string updatedLabel,
     string actionText,
     ActionCommand command,
-    string? iconUrl)
+    string? iconUrl,
+    string? iconSlug = null)
     : INotifyPropertyChanged
 {
     private Bitmap? _icon = icon;
     private int _iconLoadStarted;
+
+    public string? IconSlug { get; } = iconSlug;
 
     public event PropertyChangedEventHandler? PropertyChanged;
 

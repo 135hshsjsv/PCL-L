@@ -60,7 +60,8 @@ internal sealed partial class LauncherViewModel
                                 T("download.resource.activities.open_page", ("entry_title", entry.Title)),
                                 entry.TargetPath,
                                 entry.TargetPath),
-                    entry.IconUrl);
+                    entry.IconUrl,
+                    entry.IconSlug);
             })
             .ToArray();
     }
@@ -80,7 +81,7 @@ internal sealed partial class LauncherViewModel
 
     private async Task LoadDownloadResourceIconAsync(DownloadResourceEntryViewModel entry)
     {
-        var iconPath = await FrontendCommunityIconCache.EnsureCachedIconAsync(entry.IconUrl);
+        var iconPath = await FrontendCommunityIconCache.EnsureCachedIconAsync(entry.IconUrl, entry.IconSlug);
         if (string.IsNullOrWhiteSpace(iconPath))
         {
             return;

@@ -93,9 +93,9 @@ internal static partial class FrontendCommunityResourceCatalogService
                 .Distinct(StringComparer.OrdinalIgnoreCase)
                 .ToArray();
         var website = GetString(item["links"] as JsonObject, "websiteUrl");
+        var slug = GetString(item, "slug");
         if (string.IsNullOrWhiteSpace(website))
         {
-            var slug = GetString(item, "slug");
             if (!string.IsNullOrWhiteSpace(slug))
             {
                 website = $"https://www.curseforge.com/minecraft/{config.CurseForgeSectionPath}/{slug}";
@@ -122,6 +122,7 @@ internal static partial class FrontendCommunityResourceCatalogService
             iconUrl,
             iconPath,
             config.IconName,
+            string.IsNullOrWhiteSpace(slug) ? null : slug,
             FrontendCommunityProjectService.CreateCompDetailTarget(projectId.ToString()),
             downloads,
             0,

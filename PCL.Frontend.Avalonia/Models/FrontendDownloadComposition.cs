@@ -103,6 +103,7 @@ internal sealed record FrontendDownloadResourceEntry(
     string? IconUrl,
     string? IconPath,
     string? IconName,
+    string? IconSlug,
     string? TargetPath,
     int DownloadCount,
     int FollowCount,
