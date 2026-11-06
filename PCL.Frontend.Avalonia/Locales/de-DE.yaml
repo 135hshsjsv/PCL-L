@@ -912,11 +912,18 @@ shell:
         4: Die LAN-Welt des Hosts ist nicht mehr erreichbar.
         5: Der Raum-Handshake ist fehlgeschlagen; eventuell unterschiedliche Versionen.
         unknown: Unbekannter Mehrspieler-Fehler.
+    messages:
+      nothing_to_copy: "Derzeit nichts zu kopieren."
+      copied_room_code: "Raumcode kopiert: {value}"
+      copied_address: "Serveradresse kopiert: {value}"
+      copy_failed: "Kopieren fehlgeschlagen: {message}"
+
     action:
       host: Raum erstellen
       join: Beitreten
       leave: Raum verlassen
       close: Schließen
+      copy: Kopieren
   startup:
     migration_warnings:
       title: Konfigurationsmigration fehlgeschlagen

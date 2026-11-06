@@ -912,11 +912,18 @@ shell:
         4: El mundo LAN del anfitrión ya no está accesible.
         5: Falló el handshake de la sala; puede que las versiones no coincidan.
         unknown: Error de multijugador desconocido.
+    messages:
+      nothing_to_copy: "No hay nada que copiar ahora mismo."
+      copied_room_code: "Código de sala copiado: {value}"
+      copied_address: "Dirección del servidor copiada: {value}"
+      copy_failed: "Error al copiar: {message}"
+
     action:
       host: Crear sala
       join: Unirse
       leave: Salir de la sala
       close: Cerrar
+      copy: Copiar
   startup:
     migration_warnings:
       title: Error en la migración de configuración

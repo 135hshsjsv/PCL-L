@@ -912,11 +912,18 @@ shell:
         4: 房主的 Minecraft 局域网世界已失联。
         5: 房间握手失败，双方可能使用了不同版本。
         unknown: 未知的联机错误。
+    messages:
+      nothing_to_copy: "当前没有可复制的内容。"
+      copied_room_code: "已复制房间码：{value}"
+      copied_address: "已复制服务器地址：{value}"
+      copy_failed: "复制失败：{message}"
+
     action:
       host: 创建房间
       join: 加入
       leave: 离开房间
       close: 关闭
+      copy: 复制
   startup:
     migration_warnings:
       title: 配置文件迁移失败

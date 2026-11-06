@@ -912,11 +912,18 @@ shell:
         4: 房主的 Minecraft 區域網路世界已失聯。
         5: 房間握手失敗，雙方可能使用了不同版本。
         unknown: 未知的連機錯誤。
+    messages:
+      nothing_to_copy: "目前沒有可複製的內容。"
+      copied_room_code: "已複製房間碼：{value}"
+      copied_address: "已複製伺服器位址：{value}"
+      copy_failed: "複製失敗：{message}"
+
     action:
       host: 建立房間
       join: 加入
       leave: 離開房間
       close: 關閉
+      copy: 複製
   startup:
     migration_warnings:
       title: 設定檔遷移失敗

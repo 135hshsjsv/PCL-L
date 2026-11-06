@@ -1049,11 +1049,21 @@ shell:
         4: []
         5: []
         unknown: []
+    messages:
+      nothing_to_copy: []
+      copied_room_code:
+        - value
+      copied_address:
+        - value
+      copy_failed:
+        - message
+
     action:
       host: []
       join: []
       leave: []
       close: []
+      copy: []
   startup:
     migration_warnings:
       title: []

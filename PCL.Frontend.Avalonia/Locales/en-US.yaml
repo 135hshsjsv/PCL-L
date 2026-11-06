@@ -912,11 +912,18 @@ shell:
         4: "The host's Minecraft LAN world is no longer reachable."
         5: The room handshake failed; both sides may use different versions.
         unknown: Unknown multiplayer error.
+    messages:
+      nothing_to_copy: "Nothing to copy right now."
+      copied_room_code: "Room code copied: {value}"
+      copied_address: "Server address copied: {value}"
+      copy_failed: "Copy failed: {message}"
+
     action:
       host: Create room
       join: Join
       leave: Leave room
       close: Close
+      copy: Copy
   startup:
     migration_warnings:
       title: Configuration Migration Failed

@@ -912,11 +912,18 @@ shell:
         4: "Le monde LAN de l'hôte n'est plus accessible."
         5: La poignée de main du salon a échoué ; les versions diffèrent peut-être.
         unknown: Erreur multijoueur inconnue.
+    messages:
+      nothing_to_copy: "Rien à copier pour le moment."
+      copied_room_code: "Code de salle copié : {value}"
+      copied_address: "Adresse du serveur copiée : {value}"
+      copy_failed: "Échec de la copie : {message}"
+
     action:
       host: Créer un salon
       join: Rejoindre
       leave: Quitter le salon
       close: Fermer
+      copy: Copier
   startup:
     migration_warnings:
       title: Échec de la migration de la configuration

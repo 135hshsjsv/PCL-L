@@ -23,6 +23,9 @@ internal sealed partial class LauncherViewModel
     private ActionCommand? _joinMultiplayerRoomCommand;
     private ActionCommand? _leaveMultiplayerRoomCommand;
     private ActionCommand? _retryMultiplayerCommand;
+    private ActionCommand? _copyMultiplayerRoomCodeCommand;
+    private ActionCommand? _copyMultiplayerDirectAddressCommand;
+    private string _multiplayerAutoCopiedSignature = string.Empty;
     private CancellationTokenSource? _multiplayerCts;
     private long _multiplayerStateIndex = -1;
     private bool _isMultiplayerPageActive;
@@ -49,6 +52,12 @@ internal sealed partial class LauncherViewModel
 
     public ActionCommand RetryMultiplayerCommand =>
         _retryMultiplayerCommand ??= new ActionCommand(() => _ = EnsureMultiplayerReadyAsync(forceRestart: true));
+
+    public ActionCommand CopyMultiplayerRoomCodeCommand =>
+        _copyMultiplayerRoomCodeCommand ??= new ActionCommand(() => _ = CopyMultiplayerRoomCodeAsync());
+
+    public ActionCommand CopyMultiplayerDirectAddressCommand =>
+        _copyMultiplayerDirectAddressCommand ??= new ActionCommand(() => _ = CopyMultiplayerDirectAddressAsync());
 
     public bool IsMultiplayerPageActive
     {
@@ -191,6 +200,8 @@ internal sealed partial class LauncherViewModel
 
     public string MultiplayerJoinCodeLabelText => LT("shell.multiplayer.join.label");
 
+    public string MultiplayerCopyButtonText => LT("shell.multiplayer.action.copy");
+
     internal void RefreshMultiplayerLocalization()
     {
         RaisePropertyChanged(nameof(MultiplayerTitleText));
@@ -203,6 +214,7 @@ internal sealed partial class LauncherViewModel
         RaisePropertyChanged(nameof(MultiplayerDirectAddressLabelText));
         RaisePropertyChanged(nameof(MultiplayerMembersLabelText));
         RaisePropertyChanged(nameof(MultiplayerJoinCodeLabelText));
+        RaisePropertyChanged(nameof(MultiplayerCopyButtonText));
 
         if (_multiplayerCurrentState != "idle")
         {
@@ -515,6 +527,88 @@ internal sealed partial class LauncherViewModel
         MultiplayerErrorText = state.State == "exception" ? BuildMultiplayerErrorText(state.ErrorType) : null;
 
         NotifyMultiplayerAvailabilityChanged();
+        TryAutoCopyMultiplayerInvite(state);
+    }
+
+    private void TryAutoCopyMultiplayerInvite(FrontendTerracottaState state)
+    {
+        if (state.State is not ("host-ok" or "guest-ok"))
+        {
+            return;
+        }
+
+        var roomCode = MultiplayerRoomCode?.Trim() ?? string.Empty;
+        var address = MultiplayerDirectAddress?.Trim() ?? string.Empty;
+        var value = state.State == "guest-ok" && address.Length > 0 ? address : roomCode;
+        if (value.Length == 0)
+        {
+            return;
+        }
+
+        var signature = $"{state.State}|{roomCode}|{address}";
+        if (string.Equals(signature, _multiplayerAutoCopiedSignature, StringComparison.Ordinal))
+        {
+            return;
+        }
+
+        _multiplayerAutoCopiedSignature = signature;
+        _ = CopyMultiplayerTextAsync(value, isRoomCode: state.State != "guest-ok", silent: false);
+    }
+
+    private async Task CopyMultiplayerRoomCodeAsync()
+    {
+        var roomCode = MultiplayerRoomCode?.Trim() ?? string.Empty;
+        if (roomCode.Length == 0)
+        {
+            AvaloniaHintBus.Show(LT("shell.multiplayer.messages.nothing_to_copy"), AvaloniaHintTheme.Error);
+            return;
+        }
+
+        await CopyMultiplayerTextAsync(roomCode, isRoomCode: true, silent: false);
+    }
+
+    private async Task CopyMultiplayerDirectAddressAsync()
+    {
+        var address = MultiplayerDirectAddress?.Trim() ?? string.Empty;
+        if (address.Length == 0)
+        {
+            AvaloniaHintBus.Show(LT("shell.multiplayer.messages.nothing_to_copy"), AvaloniaHintTheme.Error);
+            return;
+        }
+
+        await CopyMultiplayerTextAsync(address, isRoomCode: false, silent: false);
+    }
+
+    private async Task CopyMultiplayerTextAsync(string text, bool isRoomCode, bool silent)
+    {
+        try
+        {
+            Task? clipboardTask = null;
+            await global::Avalonia.Threading.Dispatcher.UIThread.InvokeAsync(
+                () => clipboardTask = _launcherActionService.SetClipboardTextAsync(text));
+            if (clipboardTask is not null)
+            {
+                await clipboardTask;
+            }
+            if (silent)
+            {
+                return;
+            }
+
+            AvaloniaHintBus.Show(
+                LT(
+                    isRoomCode
+                        ? "shell.multiplayer.messages.copied_room_code"
+                        : "shell.multiplayer.messages.copied_address",
+                    ("value", text)),
+                AvaloniaHintTheme.Success);
+        }
+        catch (Exception ex)
+        {
+            AvaloniaHintBus.Show(
+                LT("shell.multiplayer.messages.copy_failed", ("message", ex.Message)),
+                AvaloniaHintTheme.Error);
+        }
     }
 
     private string BuildMultiplayerStatusText(string state, string? directAddress, string? difficulty = null)

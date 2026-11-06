@@ -912,11 +912,18 @@ shell:
         4: 室主之 Minecraft 局域網世界已失聯。
         5: 室之握手不成，雙方版本或異。
         unknown: 未知之聯機誤。
+    messages:
+      nothing_to_copy: "今無可複製者。"
+      copied_room_code: "已錄房號：{value}"
+      copied_address: "已錄伺服器位址：{value}"
+      copy_failed: "複製未成：{message}"
+
     action:
       host: 開室
       join: 入室
       leave: 離室
       close: 閉
+      copy: 複製
   startup:
     migration_warnings:
       title: 設檔遷移失敗
